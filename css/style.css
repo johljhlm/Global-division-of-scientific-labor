@@ -1,0 +1,55 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+header,
+footer {
+  background: #113aa6;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+main {
+  padding: 2em;
+}
+
+section {
+  margin-bottom: 2em;
+}
+.hidden {
+  display: none;
+}
+#incomeContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列 */
+  grid-template-rows: repeat(2, auto);   /* 自动高度 */
+  /*gap: 10px; /* 控制 svg 间距 */
+  justify-items: center; /* 水平居中 svg */
+  align-items: center;   /* 垂直居中 svg */
+  margin: 20px auto;
+  grid-gap: 0px;
+}
+
+#incomeContainer svg {
+  border: 1px solid #ccc; /* 可选边框方便查看 */
+}
+
+#incomeContainer svg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2; /* 确保不会塌缩 */
+  max-width: 45vw; /* 每张图最大宽度控制 */
+  max-height: 50vw; /* 每张图最大宽度控制 */
+  border: 1px solid #ccc;
+}
+.chart-title {
+  font-family: sans-serif;
+}
+
+.legend text {
+  font-family: sans-serif;
+}
