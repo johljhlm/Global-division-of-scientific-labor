@@ -2,7 +2,7 @@
 const width = 960;
 const height = 600;
 
-const svg = d3.select("body").append("svg")
+const svg = d3.select("svg")
     .attr("viewBox", [0, 0, width, height]);
 
 const tooltip = d3.select("#tooltip");
