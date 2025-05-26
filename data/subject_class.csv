@@ -1,0 +1,145 @@
+abbrev,level_1,level_2,level_3
+Fine Arts/Arch,Fine Arts & Architecture,Arts,Arts and Humanities
+Perf. Arts,Performing Arts,Arts,Arts and Humanities
+Agr. & Food Sci.,Agricult & Food Science,Biology,Natural Sciences
+Botany,Botany,Biology,Natural Sciences
+Dairy&Animal Sci.,Dairy & Animal Science,Biology,Natural Sciences
+Ecology,Ecology,Biology,Natural Sciences
+Entomology,Entomology,Biology,Natural Sciences
+Geo. Bio.,General Biology,Biology,Natural Sciences
+Gen. Zoo,General Zoology,Biology,Natural Sciences
+Marine & Hydro. Bio.,Marine Biology & Hydrobiology,Biology,Natural Sciences
+Misc. Bio,Miscellaneous Biology,Biology,Natural Sciences
+Misc. Zoo,Miscellaneous Zoology,Biology,Natural Sciences
+Anatomy&Morphology,Anatomy & Morphology,Biomedical Research,Medical Sciences
+Biochem & Mol. Bio.,Biochemistry & Molecular Biology,Biomedical Research,Medical Sciences
+Biomed. Eng.,Biomedical Engineering,Biomedical Research,Medical Sciences
+Biophysics,Biophysics,Biomedical Research,Medical Sciences
+"Cell. Bio., Cytology, Histology",Cellular Biology Cytology & Histology,Biomedical Research,Medical Sciences
+Embryology,Embryology,Biomedical Research,Medical Sciences
+Gen. Biomed.,General Biomedical Research,Biomedical Research,Medical Sciences
+Genetics&Heredity,Genetics & Heredity,Biomedical Research,Medical Sciences
+Microbio.,Microbiology,Biomedical Research,Medical Sciences
+Microscopy,Microscopy,Biomedical Research,Medical Sciences
+Misc. Biomed,Miscellaneous Biomedical Research,Biomedical Research,Medical Sciences
+Nurtition&Dietics,Nutrition & Dietetic,Biomedical Research,Medical Sciences
+Parasitology,Parasitology,Biomedical Research,Medical Sciences
+Physiology,Physiology,Biomedical Research,Medical Sciences
+Virology,Virology,Biomedical Research,Medical Sciences
+Analytical Chem.,Analytical Chemistry,Chemistry,Natural Sciences
+Applied Chem.,Applied Chemistry,Chemistry,Natural Sciences
+Gen. Chem.,General Chemistry,Chemistry,Natural Sciences
+Inorg./Nuclear Chem.,Inorganic & Nuclear Chemistry,Chemistry,Natural Sciences
+Org. Cham,Organic Chemistry,Chemistry,Natural Sciences
+Phys. Chem.,Physical Chemistry,Chemistry,Natural Sciences
+Polymers,Polymers,Chemistry,Natural Sciences
+Addictive Dis.,Addictive Diseases,Clinical Medicine,Medical Sciences
+Allergy,Allergy,Clinical Medicine,Medical Sciences
+Anesthesiology,Anesthesiology,Clinical Medicine,Medical Sciences
+Arthritis & Rheumatology,Arthritis & Rheumatology,Clinical Medicine,Medical Sciences
+Cancer,Cancer,Clinical Medicine,Medical Sciences
+Cardio. System,Cardiovascular System,Clinical Medicine,Medical Sciences
+Dentistry,Dentistry,Clinical Medicine,Medical Sciences
+Dermatology & Venerial Dis.,Dermatology & Venerial Disease,Clinical Medicine,Medical Sciences
+Endocrinology,Endocrinology,Clinical Medicine,Medical Sciences
+Enviro.&Occupational Health,Environmental & Occupational Health,Clinical Medicine,Medical Sciences
+Fertility,Fertility,Clinical Medicine,Medical Sciences
+Gastroenterology,Gastroenterology,Clinical Medicine,Medical Sciences
+Gen. & Internal Med.,General & Internal Medicine,Clinical Medicine,Medical Sciences
+Geriatrics,Geriatrics,Clinical Medicine,Medical Sciences
+Hematology,Hematology,Clinical Medicine,Medical Sciences
+Immunology,Immunology,Clinical Medicine,Medical Sciences
+Misc. Clinical Med.,Miscellaneous Clinical Medicine,Clinical Medicine,Medical Sciences
+Nephrology,Nephrology,Clinical Medicine,Medical Sciences
+Neurology & Neurosurgery,Neurology & Neurosurgery,Clinical Medicine,Medical Sciences
+Obstetrics & Gynecology,Obstetrics & Gynecology,Clinical Medicine,Medical Sciences
+Ophthalmology,Ophthalmology,Clinical Medicine,Medical Sciences
+Orthopedics,Orthopedics,Clinical Medicine,Medical Sciences
+Otorhinolaryngology,Otorhinolaryngology,Clinical Medicine,Medical Sciences
+Pathology,Pathology,Clinical Medicine,Medical Sciences
+Pediatrics,Pediatrics,Clinical Medicine,Medical Sciences
+Pharmacology,Pharmacology,Clinical Medicine,Medical Sciences
+Pharmacy,Pharmacy,Clinical Medicine,Medical Sciences
+Psychiatry,Psychiatry,Clinical Medicine,Medical Sciences
+Radiology & Nuclear Med.,Radiology & Nuclear Medicine,Clinical Medicine,Medical Sciences
+Respiratory System,Respiratory System,Clinical Medicine,Medical Sciences
+Surgery,Surgery,Clinical Medicine,Medical Sciences
+Tropical Med.,Tropical Medicine,Clinical Medicine,Medical Sciences
+Urology,Urology,Clinical Medicine,Medical Sciences
+Veterinary Med.,Veterinary Medicine,Clinical Medicine,Medical Sciences
+Astronomy & Astrophysics,Astronomy & Astrophysics,Earth and Space,Natural Sciences
+Earth&planetary Sci.,Earth & planetary Science,Earth and Space,Natural Sciences
+Enviro. Sci.,Environmental Science,Earth and Space,Natural Sciences
+Geology,Geology,Earth and Space,Natural Sciences
+Meteorology & Atmo. Sci.,Meteorology & Atmospheric Science,Earth and Space,Natural Sciences
+Oceanography & Limnology,Oceanography & Limnology,Earth and Space,Natural Sciences
+Aerospace Tech.,Aerospace Technology,Engineering and Technology,Engineering
+Chem. Eng.,Chemical Engineering,Engineering and Technology,Engineering
+Civil Eng.,Civil Engineering,Engineering and Technology,Engineering
+Computers,Computers,Engineering and Technology,Engineering
+Electrical Eng.,Electrical Engineering & Electronics,Engineering and Technology,Engineering
+Gen. Eng.,General Engineering,Engineering and Technology,Engineering
+Industrial Eng.,Industrial Engineering,Engineering and Technology,Engineering
+Materials Sci.,Materials Science,Engineering and Technology,Engineering
+Mech. Eng.,Mechanical Engineering,Engineering and Technology,Engineering
+Metals & Metallurgy,Metals & Metallurgy,Engineering and Technology,Engineering
+Misc. Eng. & Tech.,Miscellaneous Engineering & Technology,Engineering and Technology,Engineering
+Nuclear Tech.,Nuclear Technology,Engineering and Technology,Engineering
+Oeprations Research,Operations Research,Engineering and Technology,Engineering
+"Soc. Sci., Biomed","Social Sciences, Biomedical",Health,Medical Sciences
+Geriatrics & Gerontology,Geriatrics & Gerontology,Health,Medical Sciences
+Health Policy & Services,Health Policy & Services,Health,Medical Sciences
+Nursing,Nursing,Health,Medical Sciences
+Public Health,Public Health,Health,Medical Sciences
+Rehabilitation,Rehabilitation,Health,Medical Sciences
+Speech-Language Pathology&Audiology,Speech-Language Pathology and Audiology,Health,Medical Sciences
+Soc. Studies of Med.,Social Studies of Medicine,Health,Medical Sciences
+History,History,Humanities,Arts and Humanities
+Language & Linguistics,Language & Linguistics,Humanities,Arts and Humanities
+Misc. Humanities,Miscellaneous Humanities,Humanities,Arts and Humanities
+Philosophy,Philosophy,Humanities,Arts and Humanities
+Religion,Religion,Humanities,Arts and Humanities
+Literature,Literature,Humanities,Arts and Humanities
+Applied Math,Applied Mathematics,Mathematics,Natural Sciences
+Gen. Math,General Mathematics,Mathematics,Natural Sciences
+Misc. Math,Miscellaneous Mathematics,Mathematics,Natural Sciences
+Prob. & Stats,Probability & Statistics,Mathematics,Natural Sciences
+Acoustics,Acoustics,Physics,Natural Sciences
+Applied Phys.,Applied Physics,Physics,Natural Sciences
+Chem. Phys,Chemical Physics,Physics,Natural Sciences
+Fluids & Plasmas,Fluids & Plasmas,Physics,Natural Sciences
+Gen. Phys.,General Physics,Physics,Natural Sciences
+Misc. Phys,Miscellaneous Physics,Physics,Natural Sciences
+Nuclear & Particle Phys.,Nuclear & Particle Physics,Physics,Natural Sciences
+Optics,Optics,Physics,Natural Sciences
+Solid State Phys.,Solid State Physics,Physics,Natural Sciences
+Communication,Communication,Professional Fields,Social Sciences
+Education,Education,Professional Fields,Social Sciences
+Info.&Library Sci.,Information Science & Library Science,Professional Fields,Social Sciences
+Law,Law,Professional Fields,Social Sciences
+Management,Management,Professional Fields,Social Sciences
+Misc. Prof. Field,Miscellaneous Professional Field,Professional Fields,Social Sciences
+Social Work,Social Work,Professional Fields,Social Sciences
+Behavioral Sci. & Compl. Psy.,Behavioral Science & Complementary Psychology,Psychology,Social Sciences
+Clinical Psy.,Clinical Psychology,Psychology,Social Sciences
+Developmental & Child Psy.,Developmental & Child Psychology,Psychology,Social Sciences
+Experimental Psy.,Experimental Psychology,Psychology,Social Sciences
+Gen. Psy.,General Psychology,Psychology,Social Sciences
+Human Factors,Human Factors,Psychology,Social Sciences
+Misc. Psy.,Miscellaneous Psychology,Psychology,Social Sciences
+Psychoanalysis,Psychoanalysis,Psychology,Social Sciences
+Soc. Psy.,Social Psychology,Psychology,Social Sciences
+Anthropology and Archaeology,Anthropology and Archaeology,Social Sciences,Social Sciences
+Area Studies,Area Studies,Social Sciences,Social Sciences
+Criminology,Criminology,Social Sciences,Social Sciences
+Demography,Demography,Social Sciences,Social Sciences
+Economics,Economics,Social Sciences,Social Sciences
+Gen. Soc. Studies,General Social Sciences,Social Sciences,Social Sciences
+Geography,Geography,Social Sciences,Social Sciences
+International Relations,International Relations,Social Sciences,Social Sciences
+Misc. Soc. Sci.,Miscellaneous Social Sciences,Social Sciences,Social Sciences
+Planning & Urban Studies,Planning & Urban Studies,Social Sciences,Social Sciences
+Political Sci. & Public Admin.,Political Science and Public Administration,Social Sciences,Social Sciences
+Sci. Studies,Science studies,Social Sciences,Social Sciences
+Sociology,Sociology,Social Sciences,Social Sciences
+Unknown,Unknown,Unknown,

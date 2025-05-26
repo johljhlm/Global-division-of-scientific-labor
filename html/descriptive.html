@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>描述性分析</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/descriptive.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="../js/descriptive.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>描述性分析</h1>
+    <nav class="top-right-nav">
+    <a href="correlation.html" >相关性分析</a>
+    <a href="../index.html">首页</a>
+      </nav>
+
+    <button onclick="navigateTo('economic')">经济发展分析</button>
+    <button onclick="navigateTo('historical')">学科优势分析</button>
+  </header>
+
+  <main>
+    <div class="dashboard-container">
+
+      <!-- 经济分析版块 -->
+      <section class="analysis-panel economic-panel" id="economic-section">
+        <h2><span class="panel-icon">💼</span>经济指标分析（GDP）</h2>
+        <div class="chart-container" id="gdp-chart">
+          <h3>GDP</h3>
+        </div>
+
+      </section>
+
+      <!-- 历史发展版块 -->
+      <section class="analysis-panel historical-panel" id="historical-section" style="display: none;">
+        <h2><span class="panel-icon">📊</span>学科优势分析（RCA指数）</h2>
+
+        <!-- 艺术与人文 -->
+        <div class="chart-container">
+          <h3>Arts and Humanities 学科 RCA Top 5</h3>
+          <div id="arts-chart" class="rca-chart"></div>
+        </div>
+
+        <!-- 工程学 -->
+        <div class="chart-container">
+          <h3>Engineering 学科 RCA Top 5</h3>
+          <div id="eng-chart" class="rca-chart"></div>
+        </div>
+
+        <!-- 社会科学 -->
+        <div class="chart-container">
+          <h3>Social Sciences 学科 RCA Top 5</h3>
+          <div id="soc-chart" class="rca-chart"></div>
+        </div>
+
+        <!-- 自然科学 -->
+        <div class="chart-container">
+          <h3>Natural Sciences 学科 RCA Top 5</h3>
+          <div id="nat-chart" class="rca-chart"></div>
+        </div>
+
+        <!-- 医学与健康 -->
+        <div class="chart-container">
+          <h3>Medical Sciences 学科 RCA Top 5</h3>
+          <div id="med-chart" class="rca-chart"></div>
+        </div>
+      </section>
+
+    </div>
+    </section>
+
+    </div>
+  </main>
+
+
+</body>

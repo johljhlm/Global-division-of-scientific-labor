@@ -1,0 +1,104 @@
+/* 页面主体区域为单列居中布局 */
+.dashboard-container {
+    display: block;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 每个分析面板样式 */
+.analysis-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* 图标间距 */
+.panel-icon {
+    margin-right: 10px;
+}
+
+/* 图表容器 */
+#gdp-chart {
+    height: 300px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+/* 页面上方按钮样式增强（可选） */
+header button {
+    margin: 10px 10px 0 0;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+header button:hover {
+    background-color: #0056b3;
+}
+
+#chart-container {
+    width: 100%;
+    /* 确保div宽度满容器 */
+    height: 400px;
+    /* 设置合适高度 */
+    box-sizing: border-box;
+    padding: 10px;
+    /* 给容器一些内边距避免紧贴边缘 */
+    overflow: visible;
+    /* 防止内容被裁剪 */
+}
+
+.rca-panel {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rca-chart {
+    width: 100%;
+    height: 300px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.tooltip {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+.axis-label {
+    font-size: 12px;
+    fill: #555;
+}
+
+.chart-title {
+    font-size: 14px;
+    fill: #333;
+}
