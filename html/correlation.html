@@ -20,10 +20,21 @@
   <main>
     <section id="geographic-corr" class="content-section">
       <h2 style="text-align:center;">
-        2014-2017年间植物学为优势学科的国家地理位置分布情况(RCA分布热力图)
+        2014-2017年间各个学科的优势国家地理位置分布情况(RCA分布热力图)
       </h2>
+      <label for="select-subject">Subject:</label>
+      <div id="color-legend"></div>
 
-      <div class="legend-container" id="legend"></div>
+      <select id="select-subject" class="form-control">
+        <option value="Botany">Botany</option>
+        <option value="Agricult & Food Science">Agricult & Food Science</option>
+        <option value="Health Policy & Services">Health Policy & Services</option>
+        <option value="Industrial Engineering">Industrial Engineering</option>
+        <option value="Applied Physics">Applied Physics</option>
+      </select>
+
+      <div id="tooltip" class="tooltip"></div>
+      <!-- <div class="legend-container" id="legend"></div> -->
 
       <div class="charts-grid">
         <div id="chart-2014" class="map-chart"></div>
@@ -31,18 +42,25 @@
         <div id="chart-2016" class="map-chart"></div>
         <div id="chart-2017" class="map-chart"></div>
       </div>
+
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+      <script src="../js/co_geography.js"></script>
+    </section>
+
     </section>
     <section id="economic-corr" class="content-section hidden">
       <!--<h2>🌍经济因素与科学分工</h2>-->
-      
+
       <section id="incomeSection">
-      <div ><h3>🌐 国家收入类型与学科关联网络</h3></div>
-      <div id="incomeContainer" >
-        <svg id="svg-high" ></svg>
-        <svg id="svg-upper-middle"></svg>
-        <svg id="svg-lower-middle" ></svg>
-        <svg id="svg-low" ></svg>
-      </div>
+        <div>
+          <h3>🌐 国家收入类型与学科关联网络</h3>
+        </div>
+        <div id="incomeContainer">
+          <svg id="svg-high"></svg>
+          <svg id="svg-upper-middle"></svg>
+          <svg id="svg-lower-middle"></svg>
+          <svg id="svg-low"></svg>
+        </div>
 
       </section>
 
@@ -55,20 +73,20 @@
       <section id="scatterSection">
         <h3>📊 散点图：多样性 vs 经济指标</h3>
         <div id="controls">
-        <label for="yearSlider">年份:</label>
-        <input type="range" id="yearSlider" min="2000" max="2020" step="1" value="2010" />
-        <span id="yearLabel">2010</span>
-        
-        <label for="subjectSelect">学科:</label>
-        <select id="subjectSelect">
-          <option value="AI">人工智能</option>
-          <option value="Biology">生物学</option>
-          <option value="Agriculture">农业</option>
-        </select>
-      </div>
+          <label for="yearSlider">年份:</label>
+          <input type="range" id="yearSlider" min="2000" max="2020" step="1" value="2010" />
+          <span id="yearLabel">2010</span>
+
+          <label for="subjectSelect">学科:</label>
+          <select id="subjectSelect">
+            <option value="AI">人工智能</option>
+            <option value="Biology">生物学</option>
+            <option value="Agriculture">农业</option>
+          </select>
+        </div>
         <div id="scatterChartContainer"></div>
       </section>
-        
+
     </section>
   </main>
   <div id="tooltip" style="
@@ -83,7 +101,7 @@
   display: none;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 "></div>
-<div id="node-info" style="
+  <div id="node-info" style="
   position: absolute;
   top: 20px;
   right: 20px;
@@ -98,8 +116,8 @@
   z-index: 100;
 "></div>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
-     
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
   <script src="../js/co_economic.js"></script>
 
   <!-- 引用外部的js 文件 -->

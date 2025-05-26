@@ -1,153 +1,190 @@
-// 这里假设使用 d3 v7，支持 Promise + async/await
-(async function () {
-    // 宽高设定，统一用
-    const width = 500;
-    const height = 350;
+// 假设你的 HTML 中已有四个 div: #chart-2014, #chart-2015, #chart-2016, #chart-2017
 
-    // 地图投影
-    const projection = d3.geoMercator()
-        .scale(70)
-        .translate([width / 2, height / 1.5]);
+const width = 800;
+const height = 500;
+const projection = d3.geoMercator().scale(85).translate([width / 3, height / 2]);
+const path = d3.geoPath().projection(projection);
+let countriesPaths = {}; // 保存每年地图上的 path 元素
+let rawDataBySubject = new Map(); // 按学科缓存所有数据
+let currentSubject = "Botany"; // 默认选中学科
 
-    const path = d3.geoPath().projection(projection);
+// 定义颜色比例尺（初始定义，会在每次切换学科时动态更新 domain）
+const colorScale = d3.scaleSequential(d3.interpolateYlOrRd)
+    .domain([-1, 1.5]);
 
+// 初始化地图结构（只执行一次）
+function initMap(containerId, countries) {
+    const svg = d3.select(`#${containerId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
 
+    countriesPaths[containerId] = svg.selectAll("path")
+        .data(countries)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .attr("fill", "#eee")
+        .attr("stroke", "#999")
+        .attr("stroke-width", 0.5)
+        .attr("data-name", d => d.properties.name || d.properties.ADMIN || "")
+        .on("mouseover", function (event, d) {
+            const countryName = d.properties.name || d.properties.ADMIN || "";
+            const val = d3.select(this).attr("data-rca-val");
+            d3.select("#tooltip")
+                .style("opacity", 1)
+                .html(`<strong>${countryName}</strong>${val ? `<br/>Log₁₀RCA: ${(+val).toFixed(2)}` : ""}`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY + 10) + "px");
+        })
+        .on("mouseout", () => {
+            d3.select("#tooltip").style("opacity", 0);
+        });
+}
+let legendCreated = false;
 
+function createLegend(containerId, legendWidth = 250, legendHeight = 15) {
+    const legendContainer = d3.select(`#${containerId}`)
+        .style("position", "absolute")
+        .style("Top", "220px")
+        .style("right", "70px")
+        .style("width", `${legendWidth}px`)
+        .style("margin", "10px auto");
 
-    // 读取数据
-    const [world, data] = await Promise.all([
-        d3.json("../data/world.json"),          // 地理json
-        d3.csv("../data/RCA.csv")       // 数据csv
-    ]);
+    legendContainer.append("div")
+        .style("text-align", "center")
+        .style("font-size", "12px")
+        .style("margin-bottom", "5px")
+        .text("Log₁₀ RCA指数");
 
-    // 过滤只要Botany的部分（根据示例，若需要筛选不同Discipline可以调）
-    const filteredData = data.filter(d => d.Discipline === "Biology" && d.Specialty === "Botany");
+    const gradientSvg = legendContainer.append("svg")
+        .attr("width", legendWidth + 20)
+        .attr("height", legendHeight + 25);
 
-    // 找最大最小RCA_Specialty，用于颜色比例尺domain
-    const rcaValues = filteredData.map(d => +d.RCA_Specialty);
-    const maxRCA = d3.max(rcaValues);
-    const minRCA = d3.min(rcaValues);
-    // 颜色比例尺
-    // const colorScale = d3.scaleSequential()
-    //     .interpolator(d3.interpolateViridis)  // 新配色
-    //     .clamp(true)
-    //     .domain([minRCA, maxRCA]);
-    const colorScale = d3.scaleLinear()
-        .domain([minRCA, maxRCA])
-        .range(["#e0f3dc", "#43a2ca"]); // 浅绿到深蓝
+    // 添加 defs 和 linearGradient
+    const defs = gradientSvg.append("defs");
+    defs.append("linearGradient")
+        .attr("id", `gradient-${containerId}`)
+        .attr("x1", "0%").attr("x2", "100%")
+        .attr("y1", "0%").attr("y2", "0%");
 
+    // 添加矩形，绑定渐变填充
+    gradientSvg.append("rect")
+        .attr("width", legendWidth)
+        .attr("height", legendHeight)
+        .style("stroke", "#ccc")
+        .style("stroke-width", "0.5px");
 
-    // 将数据按年份分组，方便4张图使用
-    const dataByYear = d3.group(filteredData, d => d.Year);
+    // 添加坐标轴组
+    gradientSvg.append("g")
+        .attr("class", "legend-axis")
+        .attr("transform", `translate(0, ${legendHeight})`);
 
-    // world.json 的处理：
-    // 假设是GeoJSON格式，如果是TopoJSON，需转换：
-    // const countries = topojson.feature(world, world.objects.countries).features;
-    // 这里示例按GeoJSON
-    const countries = world.features;
-    function drawLegend(containerId, colorScale, minVal, maxVal) {
-        const legendWidth = 140;
-        const legendHeight = 20;
+    legendCreated = true;
+}
 
-        const canvas = d3.select(`#${containerId}`)
-            .append("canvas")
-            .attr("width", legendWidth)
-            .attr("height", legendHeight)
-            .style("width", legendWidth + "px")
-            .style("height", legendHeight + "px");
+function updateLegend(containerId, colorScale, minVal, maxVal, legendWidth = 250, legendHeight = 15) {
+    const gradientId = `gradient-${containerId}`;
+    const gradient = d3.select(`#${gradientId}`);
 
-        const ctx = canvas.node().getContext("2d");
+    // 更新渐变色
+    gradient.selectAll("stop").remove(); // 先清空旧的stop
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", colorScale(minVal));
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", colorScale(maxVal));
 
-        // 画渐变色条
-        const image = ctx.createImageData(legendWidth, legendHeight);
-        for (let i = 0; i < legendWidth; ++i) {
-            const c = d3.rgb(colorScale(minVal + (i / legendWidth) * (maxVal - minVal)));
-            for (let j = 0; j < legendHeight; ++j) {
-                const index = 4 * (j * legendWidth + i);
-                image.data[index] = c.r;
-                image.data[index + 1] = c.g;
-                image.data[index + 2] = c.b;
-                image.data[index + 3] = 255;
-            }
-        }
-        ctx.putImageData(image, 0, 0);
+    // 更新矩形填充url
+    d3.select(`#${containerId} svg rect`)
+        .style("fill", `url(#${gradientId})`);
 
-        // 用svg加刻度文字
-        const svg = d3.select(`#${containerId}`)
-            .append("svg")
-            .attr("width", legendWidth)
-            .attr("height", 30);
+    // 更新比例尺和坐标轴
+    const scale = d3.scaleLinear()
+        .domain([minVal, maxVal])
+        .range([0, legendWidth]);
 
-        const scale = d3.scaleLinear()
-            .domain([minVal, maxVal])
-            .range([0, legendWidth]);
+    const axis = d3.axisBottom(scale).ticks(5).tickFormat(d3.format(".2f"));
 
-        const axisBottom = d3.axisBottom(scale)
-            .ticks(5)
-            .tickFormat(d3.format(".2f"));
+    d3.select(`#${containerId} svg g.legend-axis`)
+        .call(axis)
+        .selectAll("text")
+        .style("font-size", "12px");
+}
+// 更新某一张地图的颜色
+function updateMapColors(containerId, dataForYear) {
+    const rcaMap = new Map(dataForYear.map(d => [d.Country, Math.log10(+d.RCA_Specialty)]));
 
-        svg.append("g")
-            .attr("transform", "translate(0,10)")
-            .call(axisBottom);
-    }
+    // 更新颜色比例尺 domain
+    const rcaValues = Array.from(rcaMap.values());
+    const minVal = d3.min(rcaValues);
+    const maxVal = d3.max(rcaValues);
+    colorScale.domain([minVal, maxVal]);
 
-    // 调用颜色条绘制函数
-    drawLegend("legend", colorScale, minRCA, maxRCA);
+    countriesPaths[containerId]
+        .transition()
+        .duration(500)
+        .attr("fill", function (d) {
+            const name = d.properties.name || d.properties.ADMIN || "";
+            const val = rcaMap.get(name);
+            d3.select(this).attr("data-rca-val", val != null ? val : "");
+            return val != null ? colorScale(val) : "#eee";
+        });
 
-    // 画图函数
-    function drawMap(containerId, year) {
-        // drawMap函数中
-        const svg = d3.select(`#${containerId}`)
-            .append("svg")
-            .attr("width", "100%")      // 宽度改为100%适应父容器
-            .attr("height", height);    // 高度保持固定350
+}
 
+// 更新所有年份的地图
+function updateAllMaps() {
+    const yearList = [2014, 2015, 2016, 2017];
+    let allRcaValues = [];
 
-        // 获取当年数据，变成Map，key是国家名，value是RCA_Specialty
-        const yearData = dataByYear.get(year.toString()) || [];
-        const rcaMap = new Map(yearData.map(d => [d.Country, +d.RCA_Specialty]));
-
-        // 绘制国家路径
-        svg.selectAll("path")
-            .data(countries)
-            .join("path")
-            .attr("d", path)
-            .attr("fill", d => {
-                // 国家名字字段，可能叫 properties.name 或 properties.ADMIN，视json结构调整
-                const countryName = d.properties.name || d.properties.ADMIN || "";
-                const val = rcaMap.get(countryName);
-                return val != null ? colorScale(val) : "#eee"; // 无数据国家填灰
-            })
-            .attr("stroke", "#999")
-            .attr("stroke-width", 0.5)
-            .on("mouseover", function (event, d) {
-                const countryName = d.properties.name || d.properties.ADMIN || "";
-                const val = rcaMap.get(countryName);
-                const tooltip = d3.select("#tooltip");
-                tooltip
-                    .style("opacity", 1)
-                    // .html(`<strong>${countryName}</strong><br/>RCA: ${val != null ? val.toFixed(2) : "无数据"}`)
-                    .html(`<strong>${countryName}</strong>${val != null ? `<br/>RCA: ${val.toFixed(2)}` : ""}`)
-
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY + 10) + "px");
-            })
-            .on("mouseout", function () {
-                d3.select("#tooltip").style("opacity", 0);
-            });
-
-        // 标题
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", 25)
-            .attr("text-anchor", "middle")
-            .attr("font-size", "16px")
-            .attr("font-weight", "bold")
-            .text(year + "年");
-    }
-
-    // 四个年份循环绘图
-    [2014, 2015, 2016, 2017].forEach(year => {
-        drawMap("chart-" + year, year);
+    yearList.forEach(year => {
+        const data = rawDataBySubject.get(currentSubject)?.filter(d => +d.Year === year) || [];
+        allRcaValues.push(...data.map(d => Math.log10(+d.RCA_Specialty)));
+        updateMapColors(`chart-${year}`, data);
     });
-})();
+
+    if (allRcaValues.length > 0) {
+        const minVal = d3.min(allRcaValues);
+        const maxVal = d3.max(allRcaValues);
+        colorScale.domain([minVal, maxVal]);
+
+        if (!legendCreated) {
+            createLegend("color-legend");
+        }
+        updateLegend("color-legend", colorScale, minVal, maxVal);
+    }
+}
+
+
+
+function drawAllMaps(countries, rawData) {
+    // 缓存每个学科的数据
+    const dataBySubject = d3.group(rawData, d => d.Specialty);
+    dataBySubject.forEach((val, key) => {
+        rawDataBySubject.set(key, val);
+    });
+
+    // 初始化地图（只做一次）
+    [2014, 2015, 2016, 2017].forEach(year => {
+        initMap(`chart-${year}`, countries);
+    });
+
+    updateAllMaps();
+
+    // 学科选择框事件
+    d3.select("#select-subject").on("change", function () {
+        currentSubject = this.value;
+        updateAllMaps();
+    });
+}
+
+// 加载数据并绘制地图
+Promise.all([
+    d3.json("../data/world.json"),
+    d3.csv("../data/ceo_geoo.csv")
+]).then(([geoData, csvData]) => {
+    drawAllMaps(geoData.features, csvData);
+
+});
