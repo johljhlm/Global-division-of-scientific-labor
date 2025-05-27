@@ -8,8 +8,8 @@ const svg = d3.select("svg")
 const tooltip = d3.select("#tooltip");
 
 Promise.all([
-    d3.json("Global-division-of-scientific-labor/data/world.json"),
-    d3.csv("Global-division-of-scientific-labor/data/average_papers_per_country.csv")
+    d3.json("data/world.json"),
+    d3.csv("data/average_papers_per_country.csv")
 ]).then(([geoData, paperData]) => {
     const paperMap = {};
     paperData.forEach(d => {

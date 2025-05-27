@@ -5,7 +5,8 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
-.incomeContainer{
+
+.incomeContainer {
     max-width: 1000px;
     margin: 20px auto;
     display: grid;
@@ -49,8 +50,8 @@
     height: 20px;
     display: block;
 }
-.lineChartContainer
-{
+
+.lineChartContainer {
     position: absolute;
     top: 250px;
     right: 20px;
@@ -65,4 +66,9 @@
     /* 不干扰鼠标操作 */
     user-select: none;
     z-index: 10;
+}
+
+.chart-container p {
+    margin-bottom: 10px;
+    /* 调整这个值来增加或减少间距 */
 }

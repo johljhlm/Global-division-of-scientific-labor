@@ -46,8 +46,8 @@ let legendCreated = false;
 function createLegend(containerId, legendWidth = 250, legendHeight = 15) {
     const legendContainer = d3.select(`#${containerId}`)
         .style("position", "absolute")
-        .style("Top", "220px")
-        .style("right", "70px")
+        .style("Top", "260px")
+        .style("right", "90px")
         .style("width", `${legendWidth}px`)
         .style("margin", "10px auto");
 
@@ -182,12 +182,12 @@ function drawAllMaps(countries, rawData) {
 
 function drawGeographic() {
 
-// 加载数据并绘制地图
-Promise.all([
-    d3.json("../data/world.json"),
-    d3.csv("../data/ceo_geoo.csv")
-]).then(([geoData, csvData]) => {
-    drawAllMaps(geoData.features, csvData);
+    // 加载数据并绘制地图
+    Promise.all([
+        d3.json("../data/world.json"),
+        d3.csv("../data/ceo_geoo.csv")
+    ]).then(([geoData, csvData]) => {
+        drawAllMaps(geoData.features, csvData);
 
-});
+    });
 }
