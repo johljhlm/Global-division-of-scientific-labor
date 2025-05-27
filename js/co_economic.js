@@ -691,7 +691,7 @@ function drawIncomePeriodSummaryScatter() {
 
   Object.entries(groupData).forEach(([key, group]) => {
     const values = group.values.sort(d3.ascending);
-    const mean = d3.mean(values);
+    const median = d3.median(values);
     const q1 = d3.quantile(values, 0.25);
     const q3 = d3.quantile(values, 0.75);
 
@@ -700,7 +700,7 @@ function drawIncomePeriodSummaryScatter() {
       income: group.income,
       incomeLabel: incomeLabels[group.income],
       period: group.period,
-      mean,
+      median,
       q1,
       q3
     });
@@ -757,13 +757,13 @@ function drawIncomePeriodSummaryScatter() {
     .attr("stroke-width", 4)
     .attr("stroke-opacity", 0.9);
 
-  // 均值点
-  svg.selectAll("circle.mean")
+  // 中位数点
+  svg.selectAll("circle.median")
     .data(summaryData)
     .enter()
     .append("circle")
-    .attr("class", "mean")
-    .attr("cx", d => x(d.mean))
+    .attr("class", "median")
+    .attr("cx", d => x(d.median))
     .attr("cy", d => y(`${d.incomeLabel} ${d.period}`))
     .attr("r", 6)
     .attr("fill", d => colorScale(+d.period.split("-")[0]))
@@ -786,6 +786,30 @@ function drawIncomePeriodSummaryScatter() {
     .style("font-size", "14px")
     
     .text("收入类型与时间段");
+    svg.append("text")
+    .attr("x", width/2)
+    .attr("y", -10)
+    .attr("text-anchor", "middle")
+    .attr("class", "chart-title")
+    .style("font-size", "20px")
+    
+    .text("收入类型与学科多样性关系");
+    svg.append("text")
+    .attr("x", width-40)
+    .attr("y", 200)
+    .attr("text-anchor", "middle")
+    .attr("class", "chart-title")
+    .style("font-size", "14px")
+    
+    .text("圆点表示中位数，");
+    svg.append("text")
+    .attr("x", width-40)
+    .attr("y", 220)
+    .attr("text-anchor", "middle")
+    .attr("class", "chart-title")
+    .style("font-size", "14px")
+    
+    .text("横线两端表示四分位数");
 
 }
 drawIncomePeriodSummaryScatter(); // 使用汇总图
