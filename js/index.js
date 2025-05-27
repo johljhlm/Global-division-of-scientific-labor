@@ -8,8 +8,8 @@ const svg = d3.select("svg")
 const tooltip = d3.select("#tooltip");
 
 Promise.all([
-    d3.json("../data/world.json"),
-    d3.csv("../data/average_papers_per_country.csv")
+    d3.json("data/world.json"),
+    d3.csv("data/average_papers_per_country.csv")
 ]).then(([geoData, paperData]) => {
     const paperMap = {};
     paperData.forEach(d => {
@@ -54,7 +54,7 @@ Promise.all([
             const pageWidth = window.innerWidth;
             const pageHeight = window.innerHeight;
 
-            let x = event.clientX  +10;
+            let x = event.clientX + 10;
             let y = event.clientY + 100;
 
             if (x + tooltipWidth > pageWidth) {
