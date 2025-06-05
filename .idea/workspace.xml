@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="49907a1b-0d00-4c34-bc03-360709f49c7f" name="更改" comment="refresh things and add new functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/descriptive.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/descriptive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/descriptive.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/descriptive.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1749098864524</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refresh things and add new functions">
+      <created>1749099283776</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749099283776</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refresh things and add new functions">
+      <created>1749099414508</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749099414508</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
