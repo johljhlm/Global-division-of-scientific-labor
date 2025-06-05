@@ -80,7 +80,7 @@ function drawBarChart(data, title, containerSelector) {
 }
 
 function loadAndProcessData() {
-    d3.csv("../data/RCA.csv").then(function (raw) {
+    d3.csv("../../../data/RCA.csv").then(function (raw) {
         const specialtyMap = {};
 
         // 分组：将数据按 level_3（学科）分类
