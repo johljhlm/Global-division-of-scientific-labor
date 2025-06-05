@@ -26,10 +26,10 @@ let currentChart = null;
 document.addEventListener('DOMContentLoaded', function () {
     // 加载所有数据
     Promise.all([
-        d3.csv('../../data/data_gdp_clean_long.csv'),
-        d3.csv('../../data/GDP_PPP_CI.csv'),
-        d3.csv('../../data/ECI_Ranking.csv'),
-        d3.csv('../../data/income_group.csv')
+        d3.csv('../data/data_gdp_clean_long.csv'),
+        d3.csv('../data/GDP_PPP_CI.csv'),
+        d3.csv('../data/ECI_Ranking.csv'),
+        d3.csv('../data/income_group.csv')
     ]).then(([gdp, ppp, eci, income]) => {
         gdpData = gdp;
         pppData = ppp;
