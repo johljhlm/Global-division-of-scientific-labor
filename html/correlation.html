@@ -29,18 +29,18 @@
       <h2 style="text-align:center;">
         2014-2017年间各个学科的优势国家/地区地理位置分布情况(RCA分布热力图)
       </h2>
-      <label for="select-subject">Subject:</label>
+      <div class="subject-selector">
+        <label for="select-subject">选择学科：</label>
+        <select id="select-subject" class="form-control">
+          <option value="Botany">植物学 (Botany)</option>
+          <option value="Agricult & Food Science">农业与食品科学 (Agricult & Food Science)</option>
+          <option value="Health Policy & Services">卫生政策与服务 (Health Policy & Services)</option>
+          <option value="Industrial Engineering">工业工程 (Industrial Engineering)</option>
+          <option value="Applied Physics">应用物理学 (Applied Physics)</option>
+        </select>
+      </div>
       <div id="color-legend"></div>
 
-      <select id="select-subject" class="form-control">
-        <option value="Botany">Botany</option>
-        <option value="Agricult & Food Science">Agricult & Food Science</option>
-        <option value="Health Policy & Services">Health Policy & Services</option>
-        <option value="Industrial Engineering">Industrial Engineering</option>
-        <option value="Applied Physics">Applied Physics</option>
-      </select>
-
-      
       <!-- <div class="legend-container" id="legend"></div> -->
 
       <div class="charts-grid">

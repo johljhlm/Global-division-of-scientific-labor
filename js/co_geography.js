@@ -8,6 +8,19 @@ let countriesPaths = {}; // 保存每年地图上的 path 元素
 let rawDataBySubject = new Map(); // 按学科缓存所有数据
 let currentSubject = "Botany"; // 默认选中学科
 
+// 添加tooltip div
+d3.select("body").append("div")
+    .attr("id", "tooltip")
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("background-color", "white")
+    .style("border", "1px solid #ddd")
+    .style("border-radius", "4px")
+    .style("padding", "8px")
+    .style("pointer-events", "none")
+    .style("font-size", "12px")
+    .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)");
+
 // 定义颜色比例尺（初始定义，会在每次切换学科时动态更新 domain）
 const colorScale = d3.scaleSequential(d3.interpolateYlOrRd)
     .domain([-1, 1.5]);
@@ -35,10 +48,16 @@ function initMap(containerId, countries) {
                 .style("opacity", 1)
                 .html(`<strong>${countryName}</strong>${val ? `<br/>Log₁₀RCA: ${(+val).toFixed(2)}` : ""}`)
                 .style("left", (event.pageX + 10) + "px")
-                .style("top", (event.pageY + 10) + "px");
+                .style("top", (event.pageY - 28) + "px");
         })
-        .on("mouseout", () => {
-            d3.select("#tooltip").style("opacity", 0);
+        .on("mousemove", function (event) {
+            d3.select("#tooltip")
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function () {
+            d3.select("#tooltip")
+                .style("opacity", 0);
         });
 }
 let legendCreated = false;

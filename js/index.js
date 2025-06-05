@@ -1,4 +1,3 @@
-
 const width = 960;
 const height = 600;
 
@@ -22,7 +21,7 @@ Promise.all([
 
     // 对数颜色映射：log10(papers)
     const colorScale = d3.scaleSequential()
-        .domain([0, maxPapers])
+        .domain([maxPapers, 0])
         .interpolator(d3.interpolateViridis);
 
     geoData.features.forEach(feature => {

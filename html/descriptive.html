@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/descriptive.css">
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="../js/descriptive.js"></script>
+  <script type="module" src="../../js/descriptive.js"></script>
 
 </head>
 
@@ -15,9 +15,9 @@
   <header>
     <h1>描述性分析</h1>
     <nav class="top-right-nav">
-    <a href="correlation.html" >相关性分析</a>
-    <a href="../index.html">首页</a>
-      </nav>
+      <a href="correlation.html">相关性分析</a>
+      <a href="../index.html">首页</a>
+    </nav>
 
     <button onclick="navigateTo('economic')">经济发展分析</button>
     <button onclick="navigateTo('historical')">学科优势分析</button>
@@ -28,10 +28,15 @@
 
       <!-- 经济分析版块 -->
       <section class="analysis-panel economic-panel" id="economic-section">
-        <h2><span class="panel-icon">💼</span>经济指标分析（GDP）</h2>
-        <div class="chart-container" id="gdp-chart">
+        <h2><span class="panel-icon">💼</span>经济指标分析</h2>
+        <div class="indicator-buttons">
+          <button class="indicator-btn active" data-indicator="gdp">GDP</button>
+          <button class="indicator-btn" data-indicator="ppp">PPP</button>
+          <button class="indicator-btn" data-indicator="eci">ECI</button>
+          <button class="indicator-btn" data-indicator="income">Income Group</button>
         </div>
-
+        <div class="chart-container" id="economic-chart">
+        </div>
       </section>
 
       <!-- 历史发展版块 -->
