@@ -37,10 +37,9 @@ async function loadEconomic() {
     economicData_GDP = await d3.csv("../data/data_gdp_clean_long.csv");
     console.log("GDP 数据:", economicData_GDP);
 
-    economicData_PPP = await d3.csv("../data/data_ppp_clean_long.csv");
+    economicData_PPP = await d3.csv("../data/data_ppp_clean_long_withoutNA.csv");
     console.log("GDP PPP 数据:", economicData_PPP);
-    economicData_Income_long = await d3.csv("../data/data_income_group_long.csv");
-    console.log("收入等级:", economicData_Income_long);
+    
     
     economicData_Income = await d3.csv("../data/income_group.csv");
     console.log("收入等级:", economicData_Income);
@@ -48,6 +47,7 @@ async function loadEconomic() {
     console.log("收入等级:", economicData_Income_long);
 
     economicData_ECI = await d3.csv("../data/ECI_Ranking.csv");
+    economicData_ECI = economicData_ECI.filter(d => +d.Year >= 1990);
     console.log("ECI 数据:", economicData_ECI);
   } catch (error) {
     console.warn("加载经济数据失败:", error);
@@ -200,34 +200,34 @@ function drawEconomic() {
       return;
     }
     const container = document.getElementById("incomeContainer");
-    container.style.display = "grid";
-    container.style.gridTemplateColumns = "repeat(2, 1fr)";
-    container.style.gridTemplateRows = "repeat(2, auto)";
-    container.style.gap = "20px";
-    container.style.justifyItems = "center";
-    container.style.alignItems = "center";
+    //container.style.display = "grid";
+    //container.style.gridTemplateColumns = "repeat(2, 1fr)";
+    //container.style.gridTemplateRows = "repeat(2, auto)";
+    //container.style.gap = "20px";
+    //container.style.justifyItems = "center";
+    //container.style.alignItems = "center";
 
     
     const svg1 = d3.select("#svg-high")
-  .attr("viewBox", "0 0 1000 800")
+  .attr("viewBox", "0 0 2500 1200")
   .attr("preserveAspectRatio", "xMidYMid meet")
   .style("width", "100%")
   .style("height", "100%");
 
 const svg2 = d3.select("#svg-upper-middle")
-  .attr("viewBox", "0 0 1000 800")
+  .attr("viewBox", "0 0 2500 1200")
   .attr("preserveAspectRatio", "xMidYMid meet")
   .style("width", "100%")
   .style("height", "100%");
 
 const svg3 = d3.select("#svg-lower-middle")
-  .attr("viewBox", "0 0 1000 800")
+  .attr("viewBox", "0 0 2500 1200")
   .attr("preserveAspectRatio", "xMidYMid meet")
   .style("width", "100%")
   .style("height", "100%");
 
 const svg4 = d3.select("#svg-low")
-  .attr("viewBox", "0 0 1000 800")
+  .attr("viewBox", "0 0 2500 1200")
   .attr("preserveAspectRatio", "xMidYMid meet")
   .style("width", "100%")
   .style("height", "100%");
@@ -239,8 +239,8 @@ const svg4 = d3.select("#svg-low")
     svg4.selectAll("*").remove();
 
 async function drawNetwork(svg, papersData_matrix_Income, specialty_sum_Income,Name) {
-  const width = +svg.attr("width");
-  const height = +svg.attr("height");
+  const width = 1800 //+svg.attr("width");
+  const height = 600 //+svg.attr("height");
 
   const nodes = [];
   const clusterCenters = {};
@@ -310,7 +310,7 @@ async function drawNetwork(svg, papersData_matrix_Income, specialty_sum_Income,N
   // 聚类中心计算
   const clusterKeys = Object.keys(clusterMap);
   const angleStep = 2 * Math.PI / clusterKeys.length;
-  const clusterRadius = 250;
+  const clusterRadius = 800;
   clusterKeys.forEach((key, i) => {
     const angle = i * angleStep;
     clusterCenters[key] = {
@@ -338,7 +338,7 @@ async function drawNetwork(svg, papersData_matrix_Income, specialty_sum_Income,N
   // 半径比例尺，sqrt scale 符合面积感知
   const radiusScale = d3.scaleSqrt()
     .domain([minPapers, maxPapers])
-    .range([4, 20]);  // 可根据需要调整最小最大半径
+    .range([8, 40]);  // 可根据需要调整最小最大半径
 
   // 画边
   const link = svg.selectAll(".link")
@@ -384,11 +384,14 @@ async function drawNetwork(svg, papersData_matrix_Income, specialty_sum_Income,N
   const simulation = d3.forceSimulation(filteredNodes)
     .force("link", d3.forceLink(links).id(d => d.id).distance(80))
     .force("charge", d3.forceManyBody().strength(-100))
-    .force("center", d3.forceCenter(1000 / 2, 800 / 2))
+    .force("center", d3.forceCenter(2500 / 2  , 1200 / 2 ))
     .force("collision", d3.forceCollide(d => {
       const papers = specialty_sum_Income[d.name] || minPapers;
       return radiusScale(papers) + 3;
     }))
+      .force("x", d3.forceX(width / 2).strength(0.03))
+  .force("y", d3.forceY(height / 2).strength(0.03))
+
     .force("clustering", () => {
       filteredNodes.forEach(d => {
         const center = clusterCenters[d.cluster];
@@ -440,7 +443,7 @@ async function drawNetwork(svg, papersData_matrix_Income, specialty_sum_Income,N
   }
   
   // tooltip 选择器，确保页面存在<div id="tooltip"></div>
-  const tooltip = d3.select("#tooltip");
+  const tooltip = d3.select("#node-info");
 
   // 拖拽事件
 function dragstarted(event, d) {
@@ -475,9 +478,15 @@ function dragstarted(event, d) {
 
   tooltip.style("display", "block")
     .html(tooltipHTML)
-    .style("left", (event.sourceEvent.pageX + 10) + "px")
-    .style("top", (event.sourceEvent.pageY + 10) + "px");
+  
+  // 直接使用鼠标的屏幕坐标
+  const [mouseX, mouseY] = d3.pointer(event, document.body);
+  
+  tooltip
+    .style("left", `${mouseX + 10}px`)
+    .style("top", `${mouseY + 10}px`);
 
+  //window.addEventListener("mousemove", followMouse);
   // 添加边权重文字
 
   
@@ -527,9 +536,21 @@ function dragstarted(event, d) {
 function dragged(event, d) {
   d.fx = event.x;
   d.fy = event.y;
+  let tooltipHTML = `<b>${d.name}</b><br>学科: ${d.discipline}<br>论文数: ${specialty_sum_Income[d.name] || '未知'}<br><br>`;
+  //tooltipHTML += `<b>连接边权重和邻居学科:</b><br>`;
+ 
+  tooltip.style("display", "block")
+    .html(tooltipHTML)
 
-  tooltip.style("left", (event.sourceEvent.pageX + 10) + "px")
-    .style("top", (event.sourceEvent.pageY + 10) + "px");
+
+  // 直接使用鼠标的屏幕坐标
+  const [mouseX, mouseY] = d3.pointer(event, document.body);
+   // 注册全局鼠标移动监听（保证持续更新 tooltip 位置）
+  //window.addEventListener("mousemove", followMouse);
+  tooltip
+    .style("left", `${mouseX + 10}px`)
+    .style("top", `${mouseY + 10}px`);
+
 }
 
 function dragended(event, d) {
@@ -548,19 +569,20 @@ function dragended(event, d) {
   link.style("stroke-width", d => Math.max(0.5, d.value * 1.5))
       .style("stroke-opacity", 0.3);
   node.style("opacity", 1);
+  //window.removeEventListener("mousemove", followMouse);
 }
 // 添加图表标题
 svg.append("text")
-  .attr("x", width+500)
-  .attr("y", 40)
+  .attr("x", width-500)
+  .attr("y", -150)
   .attr("text-anchor", "middle")
   .attr("class", "chart-title")
-  .style("font-size", "30px")
+  .style("font-size", "60px")
   .style("font-weight", "bold")
   .text("关联学科网络图（" +Name+ "）");
   // 添加集群名称
 svg.append("text")
-  .attr("x", width+100)
+  .attr("x", width-1200)
   .attr("y", 200)
   .attr("text-anchor", "middle")
   .attr("class", "chart-title")
@@ -569,16 +591,16 @@ svg.append("text")
   .text("物理集群");
 
 svg.append("text")
-  .attr("x", width+150)
-  .attr("y", 600)
+  .attr("x", width-1200)
+  .attr("y", 1300)
   .attr("text-anchor", "middle")
   .attr("class", "chart-title")
   .style("font-size", "30px")
   
   .text("社会集群");
 svg.append("text")
-  .attr("x", width+900)
-  .attr("y", 400)
+  .attr("x", width+400)
+  .attr("y", 800)
   .attr("text-anchor", "middle")
   .attr("class", "chart-title")
   .style("font-size", "30px")
@@ -587,7 +609,7 @@ svg.append("text")
 // 添加图例
 const legend = svg.append("g")
   .attr("class", "legend")
-  .attr("transform", `translate(800, 100)`);
+  .attr("transform", `translate(1800, 80)`);
 
 const legendSpacing = 20;
 
@@ -625,6 +647,11 @@ disciplineKeys.forEach((discipline, i) => {
   
 }
   drawIncome();
+  
+  showChart('svg-high');
+  document.querySelector('.btn-group button').classList.add('active');
+
+
   // 按收入等级绘制 学科多样性 趋势
 
 function drawIncomePeriodSummaryScatter() {
@@ -814,16 +841,20 @@ function drawIncomePeriodSummaryScatter() {
 }
 drawIncomePeriodSummaryScatter(); // 使用汇总图
 
-function drawScatterWithFit(economicData,countryname, indicatorKey, containerSelector) 
- {
+function drawScatterWithFit(economicData, countryname, indicatorKey, containerSelector) {
+  const tooltip = d3.select("#node-info").style("display", "none").html("");
+
+  let selectedCountry = null;
+
+
   // 构建一个 Map：Country + Year -> 经济数据值
   const econMap = {};
   economicData.forEach(d => {
     const country = d[countryname];
     const year = +d.Year;
     const value = +d[indicatorKey];
-    if (country && !isNaN(year) && !isNaN(value) && value > 0) {
-      econMap[`${country}_${year}`] =value// Math.log10(value); // log10转换
+    if (country && !isNaN(year) && !isNaN(value)) {
+      econMap[`${country}_${year}`] = value;
     }
   });
 
@@ -851,7 +882,7 @@ function drawScatterWithFit(economicData,countryname, indicatorKey, containerSel
 
   // 设置尺寸
   const margin = { top: 30, right: 50, bottom: 60, left: 100 };
-  const width = 600 - margin.left - margin.right;
+  const width = 800 - margin.left - margin.right;
   const height = 400 - margin.top - margin.bottom;
 
   d3.select(containerSelector).html(""); // 清空画布
@@ -868,12 +899,19 @@ function drawScatterWithFit(economicData,countryname, indicatorKey, containerSel
     .nice()
     .range([0, width]);
 
-  // 纵轴：log(GDP 或其他指标)
+  // 纵轴：经济指标值
   const y = d3.scaleLinear()
     .domain(d3.extent(merged, d => d.econValue))
     .nice()
     .range([height, 0]);
 
+  // 年份颜色比例尺
+  const yearExtent = d3.extent(merged, d => d.year);
+  const colorScale = d3.scaleSequential()
+    .domain(yearExtent)
+    .interpolator(d3.interpolateBlues);
+
+  // 坐标轴
   svg.append("g")
     .attr("transform", `translate(0,${height})`)
     .call(d3.axisBottom(x));
@@ -889,7 +927,6 @@ function drawScatterWithFit(economicData,countryname, indicatorKey, containerSel
     .attr("font-size", "12px")
     .text("Diversity");
 
-  
   svg.append("text")
     .attr("transform", "rotate(0)")
     .attr("x", -10)
@@ -898,17 +935,89 @@ function drawScatterWithFit(economicData,countryname, indicatorKey, containerSel
     .attr("font-size", "12px")
     .text(`${indicatorKey}`);
 
+  // 散点图：颜色随年份变化
+  let selected = null;
 
-  // 散点
+svg.selectAll(".dot")
+  .data(merged)
+  .enter()
+  .append("circle")
+  .attr("class", "dot")
+  .attr("cx", d => x(d.diversity))
+  .attr("cy", d => y(d.econValue))
+  .attr("r", 4)
+  .attr("data-country", d => d.country)  // 👈 绑定国家名
+  .attr("fill", d => colorScale(d.year))
+  .attr("opacity", 0.7)
+  .style("cursor", "pointer")
+  .on("click", function(event, d) {
+  selectedCountry = (selectedCountry === d.country) ? null : d.country;
+
   svg.selectAll(".dot")
-    .data(merged)
-    .enter()
-    .append("circle")
-    .attr("cx", d => x(d.diversity))
-    .attr("cy", d => y(d.econValue))
-    .attr("r", 3)
-    .attr("fill", "steelblue")
-    .attr("opacity", 0.6);
+    .transition().duration(300)
+    .attr("fill", p =>
+      !selectedCountry || p.country === selectedCountry
+        ? colorScale(p.year)
+        : "#ccc"
+    )
+    .attr("opacity", p =>
+      !selectedCountry || p.country === selectedCountry
+        ? 0.9
+        : 0.2
+    );
+
+  if (selectedCountry) {
+    const countryData = merged
+      .filter(p => p.country === d.country)
+      .sort((a, b) => a.year - b.year);
+
+    const rows = countryData.map(p =>
+      `<tr>
+        <td style="padding-right: 16px;">${p.year}</td>
+        <td style="padding-right: 16px;">${p.econValue.toFixed(2)}</td>
+        <td style="padding-right: 16px;">${p.diversity.toFixed(2)}</td>
+      </tr>`
+    ).join("");
+
+    tooltip
+      .style("display", "block")
+      .style("left", "830px")  // 或使用 svgBBox.right + 20
+      .style("top", "1850px")
+      .html(`
+        <strong>${d.country}</strong>
+        <table style="margin-top:10px; border-collapse: collapse; font-size: 12px;">
+          <thead>
+            <tr>
+              <th align="left">Year</th>
+              <th align="left">${indicatorKey}</th>
+              <th align="left">Diversity</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `);
+  } else {
+    tooltip.style("display", "none");
+  }
+});
+
+
+
+
+
+d3.select(containerSelector + " svg")
+  .on("click", function(event) {
+    if (event.target.tagName !== "circle") {
+      selectedCountry = null;
+      svg.selectAll(".dot")
+        .transition().duration(300)
+        .attr("fill", d => colorScale(d.year))
+        .attr("opacity", 0.7);
+      tooltip.style("display", "none");
+    }
+  });
+
+
 
   // 拟合线
   const regression = d3.regressionLinear()
@@ -938,14 +1047,80 @@ function drawScatterWithFit(economicData,countryname, indicatorKey, containerSel
 }
 
 
+
 drawScatterWithFit(economicData_GDP,"Country Name", "GDP_WB", "#scatterPlot_GDP");
-//drawScatterWithFit(economicData_PPP, "PPP", "#scatterPlot_PPP");
+drawScatterWithFit(economicData_PPP, "Country","GDP_PPP_CI", "#scatterPlot_PPP");
 drawScatterWithFit(economicData_ECI,"Country", "ECI", "#scatterPlot_ECI");
 
+showScatter('GDP');
 
-
+//document.querySelector(".scatter-btn-group button").classList.add("active");
 }
 
+function showChart(id) {
+
+  document.querySelectorAll('.chart-svg').forEach(svg => svg.classList.remove('active'));
+  const selected = document.getElementById(id);
+  if (selected) {
+    selected.classList.add('active');
+  }
+  document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+  const buttons = {
+    'svg-high': 0,
+    'svg-upper-middle': 1,
+    'svg-lower-middle': 2,
+    'svg-low': 3
+  };
+  const btnGroup = document.querySelectorAll('.btn-group button');
+  const index = buttons[id];
+  if (btnGroup[index]) {
+    btnGroup[index].classList.add('active');
+  }
+}
+function showScatter(type) {
+  // 隐藏所有图 & 重置状态
+  // 切换图表可见性
+  d3.select("#node-info").style("display", "none").html("");
+  document.querySelectorAll('.scatter-chart').forEach(div => {
+    div.classList.remove('active');
+    const svg = div.querySelector('svg');
+    
+    const colorScale = d3.scaleSequential()
+    .domain([1990,2017])
+    .interpolator(d3.interpolateBlues);
+    
+       
+    if (svg) {
+      
+      d3.select(svg).selectAll(".dot")
+      
+        .attr("fill", d => colorScale(d.year))
+        //.attr("fill", d => d3.interpolateBlues((d.year - 2000) / 25))  // 你用的颜色scale
+        .attr("opacity", 0.7);  // 默认透明度
+    }
+  });
+  
+  document.getElementById(`scatterPlot_${type}`).classList.add("active");
+
+  // 切换按钮高亮
+  document.querySelectorAll("#scatter-btn-group button").forEach(btn => btn.classList.remove("active"));
+  const buttons = {
+    GDP: 0,
+    PPP: 1,
+    ECI: 2
+  };
+  document.querySelectorAll("#scatter-btn-group button")[buttons[type]].classList.add("active");
+  // ✅ 隐藏 tooltip
+  d3.select("#node-info").style("display", "none").html("");
+
+
+  // ✅ 重置选中状态（如果你用了全局变量）
+  if (typeof selectedCountry !== "undefined") {
+    selectedCountry = null;
+  }
+ 
+
+}
 
 
 
