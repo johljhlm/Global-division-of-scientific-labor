@@ -66,6 +66,7 @@
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <script src="../js/co_geography.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/d3-regression@1.2.1/dist/d3-regression.min.js"></script>
+      <script src="../js/co_economic.js"></script>
 
     </section>
 
@@ -76,11 +77,17 @@
         <div>
           <h3>🌐 国家收入类型与学科关联网络</h3>
         </div>
+        <div class="btn-group">
+            <button onclick="showChart('svg-high')">High</button>
+            <button onclick="showChart('svg-upper-middle')">Upper Middle</button>
+            <button onclick="showChart('svg-lower-middle')">Lower Middle</button>
+            <button onclick="showChart('svg-low')">Low</button>
+          </div>
         <div id="incomeContainer">
-          <svg id="svg-high"></svg>
-          <svg id="svg-upper-middle"></svg>
-          <svg id="svg-lower-middle"></svg>
-          <svg id="svg-low"></svg>
+          <svg id="svg-high" class="chart-svg active"></svg>
+          <svg id="svg-upper-middle" class="chart-svg"></svg>
+          <svg id="svg-lower-middle" class="chart-svg"></svg>
+          <svg id="svg-low" class="chart-svg"></svg>
         </div>
 
       </section>
@@ -93,10 +100,16 @@
 
       <section id="scatterSection">
         <h3>📊 经济指标与学科多样性</h3>
-        <div style="display: flex;">
-          <div id="scatterPlot_GDP"></div>
-          <div id="scatterPlot_PPP"></div>
-          <div id="scatterPlot_ECI"></div>
+        <!-- 按钮组 -->
+      <div class="btn-group" id="scatter-btn-group" style="margin-top: -10px;">
+        <button onclick="showScatter('GDP')" class="active">GDP</button>
+        <button onclick="showScatter('PPP')">PPP</button>
+        <button onclick="showScatter('ECI')">ECI</button>
+      </div>
+        <div >
+          <div id="scatterPlot_GDP"class="scatter-chart active"></div>
+          <div id="scatterPlot_PPP"class="scatter-chart"></div>
+          <div id="scatterPlot_ECI"class="scatter-chart"></div>
         </div>
 
       </section>
@@ -104,16 +117,19 @@
     </section>
   </main>
   <div id="tooltip" style="
-  position: absolute;
-  pointer-events: none;
-  padding: 6px 10px;
-  background: white;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+position: absolute;
+  top: 20px;
+  right: 20px;
+  max-width: 300px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #ccc;
+  padding: 10px;
   font-size: 13px;
-  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   display: none;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  z-index: 100;
+  
 "></div>
   <div id="node-info" style="
   position: absolute;
@@ -130,9 +146,7 @@
   z-index: 100;
 "></div>
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <script src="../js/co_economic.js"></script>
 
   <!-- 引用外部的js 文件 -->
 
