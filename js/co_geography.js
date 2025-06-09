@@ -1,5 +1,5 @@
 // 假设你的 HTML 中已有四个 div: #chart-2014, #chart-2015, #chart-2016, #chart-2017
-
+d3.select("#node-info").style("display", "none").html("");
 const width = 800;
 const height = 500;
 const projection = d3.geoMercator().scale(85).translate([width / 3, height / 2]);
