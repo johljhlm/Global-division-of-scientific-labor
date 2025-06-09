@@ -1,17 +1,24 @@
 .charts-grid {
-    max-width: 1000px;
+    max-width: 2500px;
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
 
-.incomeContainer {
-    max-width: 1000px;
+#incomeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.incomeContainer svg {
+    width: 100%;
+    height: 100%;
 }
 
 .map-chart {
@@ -40,7 +47,6 @@
     font-size: 12px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     pointer-events: none;
-    /* 不干扰鼠标操作 */
     user-select: none;
     z-index: 10;
 }
@@ -53,8 +59,11 @@
 
 .lineChartContainer {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     top: 250px;
-    right: 20px;
+    right: 30px;
     width: 150px;
     height: 30px;
     background: white;
@@ -63,17 +72,10 @@
     font-size: 12px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     pointer-events: none;
-    /* 不干扰鼠标操作 */
     user-select: none;
     z-index: 10;
 }
 
-.chart-container p {
-    margin-bottom: 10px;
-    /* 调整这个值来增加或减少间距 */
-}
-
-/* 学科选择器样式 */
 .subject-selector {
     position: relative;
     max-width: 400px;
@@ -118,4 +120,45 @@
 
 .subject-selector select option {
     padding: 10px;
+}
+
+.chart-svg {
+    display: none;
+    width: 100%;
+    height: 1200px !important;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+.chart-svg.active {
+    display: block;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn-group button {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.btn-group button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.scatter-chart {
+    display: none;
+    width: 2500px;
+    margin: 0 auto;
+}
+
+.scatter-chart.active {
+    display: block;
 }
