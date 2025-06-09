@@ -1147,6 +1147,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   btnGeographic.addEventListener('click', () => {
+    d3.select("#node-info").style("display", "none").html("");
     setActiveButton(btnGeographic);
     showSection('geographic-corr');
     if (isGeographicLoaded) {
