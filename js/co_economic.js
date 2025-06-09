@@ -1133,10 +1133,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 添加按钮高亮切换逻辑
   function setActiveButton(activeBtn) {
+    d3.select("#node-info").style("display", "none").html("");
     document.querySelectorAll('.button-container button').forEach(btn => {
       btn.classList.remove('active');
     });
     activeBtn.classList.add('active');
+    d3.select("#node-info").style("display", "none").html("");
   }
 
   function showSection(sectionId) {
