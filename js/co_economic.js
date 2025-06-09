@@ -1158,6 +1158,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   btnEconomic.addEventListener('click', () => {
+    d3.select("#node-info").style("display", "none").html("");
     setActiveButton(btnEconomic);
     showSection('economic-corr');
     drawEconomic();
@@ -1165,6 +1166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 默认激活地理按钮
   setActiveButton(btnGeographic);
+  d3.select("#node-info").style("display", "none").html("");
   showSection('geographic-corr');
 
   // 加载所有数据
