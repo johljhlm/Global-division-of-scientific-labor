@@ -66,7 +66,7 @@ function drawIncomeGroupChart(data) {
         .style('text-align', 'center')
         .style('margin', '10px auto')
         .style('padding', '10px')
-        .style('max-width', '600px');
+        .style('max-width', '800px');
 
     // 创建图例
     const legend = legendContainer.append('div')
