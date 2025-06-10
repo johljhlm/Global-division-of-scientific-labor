@@ -42,7 +42,6 @@ function drawBarChart(data, title, containerSelector) {
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y));
 
-    // X 轴
     svg.append("g")
         .attr("transform", `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x).ticks(5));
