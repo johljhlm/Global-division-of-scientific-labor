@@ -6,10 +6,20 @@ const svg = d3.select("svg")
 
 const tooltip = d3.select("#tooltip");
 
+// 在地图容器中添加加载提示
+d3.select("#map")
+    .append("div")
+    .attr("class", "loading-indicator")
+    .text("正在加载地图...");
+
+// 加载数据并绘制地图
 Promise.all([
     d3.json("data/world.json"),
     d3.csv("data/average_papers_per_country.csv")
 ]).then(([geoData, paperData]) => {
+    // 在地图加载完成后移除加载提示
+    d3.select("#map .loading-indicator").remove();
+
     const paperMap = {};
     paperData.forEach(d => {
         paperMap[d.Country.trim()] = +d.Papers;
@@ -117,4 +127,22 @@ Promise.all([
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
         .text("Log₁₀ PublishedPapers");
+}).catch(error => {
+    console.error("Error loading data:", error);
+    d3.select("#map .loading-indicator")
+        .text("地图加载失败，请刷新页面重试");
 });
+
+// 在颜色更新完成后移除加载提示
+function updateColors(year) {
+    paths.transition()
+        .duration(500)
+        .attr("fill", d => {
+            const val = paperMap[d.properties.name] ? Math.log10(paperMap[d.properties.name]) : null;
+            return val ? colorScale(val) : "#eee";
+        })
+        .on("end", function () {
+            // 在过渡完成后移除加载提示
+            d3.select("#map .loading-indicator").remove();
+        });
+}

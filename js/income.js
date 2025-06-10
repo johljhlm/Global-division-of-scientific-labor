@@ -24,9 +24,10 @@ function drawIncomeGroupChart(data) {
         });
     });
 
-    // 获取所有可用的年份并倒序排列
+    // 获取所有可用的年份并按照升序排列（1999-2018）
     const availableYears = Array.from(new Set(longFormatData.map(d => d.year)))
-        .sort((a, b) => b - a);
+        .filter(year => year >= 1999 && year <= 2018)
+        .sort((a, b) => a - b);
 
     // 设置饼图的尺寸
     const width = container.node().clientWidth || 800;

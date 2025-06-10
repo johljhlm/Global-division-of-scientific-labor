@@ -1,8 +1,8 @@
 // 假设你的 HTML 中已有四个 div: #chart-2014, #chart-2015, #chart-2016, #chart-2017
 d3.select("#node-info").style("display", "none").html("");
-const width = 800;
-const height = 500;
-const projection = d3.geoMercator().scale(85).translate([width / 3, height / 2]);
+const width = 450;
+const height = 400;
+const projection = d3.geoMercator().scale(95).translate([width / 2, height / 1.5]);
 const path = d3.geoPath().projection(projection);
 let countriesPaths = {}; // 保存每年地图上的 path 元素
 let rawDataBySubject = new Map(); // 按学科缓存所有数据
@@ -27,10 +27,16 @@ const colorScale = d3.scaleSequential(d3.interpolateYlOrRd)
 
 // 初始化地图结构（只执行一次）
 function initMap(containerId, countries) {
-    const svg = d3.select(`#${containerId}`)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+    // 添加加载提示
+    const container = d3.select(`#${containerId}`);
+    container.append("div")
+        .attr("class", "loading-indicator")
+        .text("正在加载地图...");
+
+    const svg = container.append("svg")
+        .style("width", "100%")
+        .style("height", "100%")
+        .attr("viewBox", `0 0 ${width} ${height}`);
 
     countriesPaths[containerId] = svg.selectAll("path")
         .data(countries)
@@ -59,6 +65,9 @@ function initMap(containerId, countries) {
             d3.select("#tooltip")
                 .style("opacity", 0);
         });
+
+    // 在所有路径加载完成后移除加载提示
+    container.select(".loading-indicator").remove();
 }
 let legendCreated = false;
 
@@ -149,8 +158,11 @@ function updateMapColors(containerId, dataForYear) {
             const val = rcaMap.get(name);
             d3.select(this).attr("data-rca-val", val != null ? val : "");
             return val != null ? colorScale(val) : "#eee";
+        })
+        .on("end", function () {
+            // 在过渡完成后移除加载提示
+            d3.select(`#${containerId} .loading-indicator`).remove();
         });
-
 }
 
 // 更新所有年份的地图
@@ -176,8 +188,6 @@ function updateAllMaps() {
     }
 }
 
-
-
 function drawAllMaps(countries, rawData) {
     // 缓存每个学科的数据
     const dataBySubject = d3.group(rawData, d => d.Specialty);
@@ -200,6 +210,13 @@ function drawAllMaps(countries, rawData) {
 }
 
 function drawGeographic() {
+    // 只在首次加载时显示加载提示
+    [2014, 2015, 2016, 2017].forEach(year => {
+        d3.select(`#chart-${year}`)
+            .append("div")
+            .attr("class", "loading-indicator")
+            .text("正在加载地图...");
+    });
 
     // 加载数据并绘制地图
     Promise.all([
@@ -207,6 +224,17 @@ function drawGeographic() {
         d3.csv("../data/ceo_geoo.csv")
     ]).then(([geoData, csvData]) => {
         drawAllMaps(geoData.features, csvData);
-
+        // 数据加载完成后移除加载提示
+        [2014, 2015, 2016, 2017].forEach(year => {
+            d3.select(`#chart-${year} .loading-indicator`).remove();
+        });
+    }).catch(error => {
+        console.error("Error loading data:", error);
+        // 如果加载失败，显示错误信息
+        [2014, 2015, 2016, 2017].forEach(year => {
+            d3.select(`#chart-${year}`)
+                .select(".loading-indicator")
+                .text("地图加载失败，请刷新页面重试");
+        });
     });
 }

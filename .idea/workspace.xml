@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="49907a1b-0d00-4c34-bc03-360709f49c7f" name="更改" comment="refresh things and add new functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/correlation.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/correlation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/co_geography.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/co_geography.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/eci.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/eci.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/income.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/income.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +29,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/大三学期/数据可视化/Global-division-of-scientific-labor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/大三学期/数据可视化/Global-division-of-scientific-labor&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -144,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1749108517343</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refresh things and add new functions">
+      <created>1749112329742</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1749112329742</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

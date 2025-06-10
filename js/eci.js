@@ -68,7 +68,7 @@ function drawECIChart(data) {
 
     // 设置比例尺
     const x = d3.scaleLinear()
-        .domain([1964, 2015])
+        .domain(d3.extent(processedData, d => d.Year))
         .range([margin.left, width - margin.right]);
 
     const y = d3.scaleLinear()
@@ -100,7 +100,7 @@ function drawECIChart(data) {
         .attr('x2', width - margin.right)
         .attr('y1', y(0))
         .attr('y2', y(0))
-        .attr('stroke', '#ccc')
+        .attr('stroke', '#666')
         .attr('stroke-dasharray', '2,2');
 
     svg.append('g').call(xAxis);
@@ -204,8 +204,8 @@ function drawECIChart(data) {
         .attr('class', 'line')
         .attr('fill', 'none')
         .attr('stroke-width', d => highlightCountries.includes(d[0]) ? 2 : 1)
-        .attr('stroke', d => highlightCountries.includes(d[0]) ? color(d[0]) : '#ccc')
-        .attr('opacity', d => highlightCountries.includes(d[0]) ? 1 : 0.15)
+        .attr('stroke', d => highlightCountries.includes(d[0]) ? color(d[0]) : '#888')
+        .attr('opacity', d => highlightCountries.includes(d[0]) ? 1 : 0.25)
         .attr('d', d => {
             const countryData = d[1];
             countryData.sort((a, b) => a.Year - b.Year);
@@ -235,9 +235,9 @@ function drawECIChart(data) {
                     if (c === country) {
                         return highlightCountries.includes(c) ? color(c) : color(country);
                     }
-                    return highlightCountries.includes(c) ? color(c) : '#ccc';
+                    return highlightCountries.includes(c) ? color(c) : '#777';
                 })
-                .attr('opacity', ([c, _]) => c === country ? 1 : (highlightCountries.includes(c) ? 0.8 : 0.1))
+                .attr('opacity', ([c, _]) => c === country ? 1 : (highlightCountries.includes(c) ? 0.8 : 0.25))
                 .attr('stroke-width', ([c, _]) => c === country ? 2.5 : (highlightCountries.includes(c) ? 2 : 1));
 
             // 更新标签
@@ -246,8 +246,8 @@ function drawECIChart(data) {
         .on('mouseout', function () {
             // 恢复原始状态
             lines
-                .attr('stroke', ([c, _]) => highlightCountries.includes(c) ? color(c) : '#ccc')
-                .attr('opacity', ([c, _]) => highlightCountries.includes(c) ? 1 : 0.15)
+                .attr('stroke', ([c, _]) => highlightCountries.includes(c) ? color(c) : '#777')
+                .attr('opacity', ([c, _]) => highlightCountries.includes(c) ? 1 : 0.25)
                 .attr('stroke-width', ([c, _]) => highlightCountries.includes(c) ? 2 : 1);
 
             // 恢复原始标签
