@@ -37,7 +37,7 @@ function drawBarChart(data, title, containerSelector) {
         .attr("height", y.bandwidth())
         .attr("fill", barColor);
 
-    // Y 轴国家名
+
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y));
