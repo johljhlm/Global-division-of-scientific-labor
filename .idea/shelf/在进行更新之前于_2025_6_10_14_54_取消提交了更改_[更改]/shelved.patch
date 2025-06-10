@@ -1,0 +1,2574 @@
+Index: css/test.css
+===================================================================
+diff --git a/css/test.css b/css/test.css
+deleted file mode 100644
+--- a/css/test.css	(revision cd121e23ab6d47a3dba57a86f9f758f4c6a51112)
++++ /dev/null	(revision cd121e23ab6d47a3dba57a86f9f758f4c6a51112)
+@@ -1,2425 +0,0 @@
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 10px;
+-}
+-
+-
+-/* 导航栏样式 */
+-nav {
+-    background-color: #f8f9fa;
+-    /* 背景颜色 */
+-    padding: 10px 20px;
+-    /* 内边距 */
+-    text-align: center;
+-    /* 文本居中 */
+-    margin: 20px 0;
+-    /* 外边距 */
+-    border-radius: 5px;
+-    /* 圆角 */
+-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+-    /* 阴影效果 */
+-}
+-
+-nav a {
+-    color: #333;
+-    /* 链接颜色 */
+-    font-size: 18px;
+-    /* 字体大小 */
+-    text-decoration: none;
+-    /* 去除下划线 */
+-    margin: 0 15px;
+-    /* 链接之间的间距 */
+-    transition: color 0.3s ease;
+-    /* 颜色过渡效果 */
+-}
+-
+-nav a:hover {
+-    color: #007bff;
+-    /* 鼠标悬停时的颜色 */
+-}
+-
+-nav a::before {
+-    content: attr(data-icon);
+-    /* 使用 data-icon 属性显示图标 */
+-    display: inline-block;
+-    margin-right: 5px;
+-    /* 图标与文字之间的间距 */
+-    font-size: 20px;
+-    /* 图标大小 */
+-}
+-
+-nav a::after {
+-    content: "|";
+-    /* 分隔符 */
+-    margin-left: 15px;
+-    /* 分隔符与链接之间的间距 */
+-}
+-
+-nav a:last-child::after {
+-    content: "";
+-    /* 最后一个链接不显示分隔符 */
+-}
+-
+-.tooltip {
+-    position: absolute;
+-    display: none;
+-    pointer-events: none;
+-    background: rgba(0, 0, 0, 0.7);
+-    color: white;
+-    padding: 10px 10px;
+-    border-radius: 4px;
+-    font-size: 12px;
+-    z-index: 999;
+-    white-space: nowrap;
+-}
+-
+-
+-/* 双面板布局 */
+-.dashboard-container {
+-    display: grid;
+-    grid-template-columns: 1fr 1fr;
+-    gap: 30px;
+-    padding: 20px;
+-}
+-
+-.analysis-panel {
+-    background: white;
+-    padding: 20px;
+-    border-radius: 8px;
+-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-}
+-
+-.panel-icon {
+-    margin-right: 10px;
+-}
+-
+-.chart-container {
+-    height: 300px;
+-    margin: 15px 0;
+-    border: 1px solid #eee;
+-    padding: 1
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"49907a1b-0d00-4c34-bc03-360709f49c7f\" name=\"更改\" comment=\"refresh things and add new functions\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2xdnl9o5TJoO1aUtIifu3KpqODy\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"last_opened_file_path\": \"D:/大三学期/数据可视化/Global-division-of-scientific-labor\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"49907a1b-0d00-4c34-bc03-360709f49c7f\" name=\"更改\" comment=\"\" />\r\n      <created>1748276967562</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1748276967562</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"update co\">\r\n      <created>1748277265459</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748277265459</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"update index\">\r\n      <created>1748306111159</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748306111159</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"update index.js\">\r\n      <created>1748306642143</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748306642143</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"update sth\">\r\n      <created>1748306991274</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748306991274</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"update sths\">\r\n      <created>1748309683754</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748309683754</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update csv\">\r\n      <created>1748314339777</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748314339777</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"rechange title\">\r\n      <created>1748316755583</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748316755583</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"refresh things and add new functions\">\r\n      <created>1749098864524</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749098864524</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"refresh things and add new functions\">\r\n      <created>1749099283776</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749099283776</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"refresh things and add new functions\">\r\n      <created>1749099414508</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749099414508</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"refresh things and add new functions\">\r\n      <created>1749100029453</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749100029453</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"refresh things and add new functions\">\r\n      <created>1749100134334</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749100134334</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"refresh things and add new functions\">\r\n      <created>1749100201516</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749100201516</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"refresh things and add new functions\">\r\n      <created>1749100381205</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749100381205</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"refresh things and add new functions\">\r\n      <created>1749108517343</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1749108517343</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"update co\" />\r\n    <MESSAGE value=\"update index\" />\r\n    <MESSAGE value=\"update index.js\" />\r\n    <MESSAGE value=\"update sth\" />\r\n    <MESSAGE value=\"update sths\" />\r\n    <MESSAGE value=\"update csv\" />\r\n    <MESSAGE value=\"rechange title\" />\r\n    <MESSAGE value=\"refresh things and add new functions\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"refresh things and add new functions\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cd121e23ab6d47a3dba57a86f9f758f4c6a51112)
++++ b/.idea/workspace.xml	(date 1749538407842)
+@@ -6,6 +6,9 @@
+   <component name="ChangeListManager">
+     <list default="true" id="49907a1b-0d00-4c34-bc03-360709f49c7f" name="更改" comment="refresh things and add new functions">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/css/test.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/js/eci.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/eci.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/js/income.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/income.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,13 +26,13 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "D:/大三学期/数据可视化/Global-division-of-scientific-labor"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/大三学期/数据可视化/Global-division-of-scientific-labor&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="默认任务">
+@@ -144,7 +147,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1749108517343</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="refresh things and add new functions">
++      <created>1749112329742</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1749112329742</updated>
++    </task>
++    <option name="localTasksCounter" value="17" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+Index: js/eci.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function drawECIChart(data) {\r\n    if (!data) {\r\n        console.error(\"No data provided to drawECIChart\");\r\n        return;\r\n    }\r\n\r\n    const container = d3.select('#economic-chart');\r\n    container.selectAll('*').remove();\r\n    container.style('height', '500px');\r\n\r\n    const width = container.node().clientWidth || 700;\r\n    const height = container.node().clientHeight || 400;\r\n    const margin = { top: 30, right: 200, bottom: 40, left: 70 };\r\n\r\n    // 处理数据 - 更严格的数据过滤\r\n    let processedData = [];\r\n\r\n    // 直接处理数据，不使用Map\r\n    data.forEach(d => {\r\n        const country = d.Country;\r\n        const year = +d.Year;\r\n        const eci = +d.ECI;\r\n\r\n        // 只处理有效的数据\r\n        if (country && !isNaN(year) && !isNaN(eci)) {\r\n            processedData.push({\r\n                \"Country\": country,\r\n                \"Year\": year,\r\n                \"ECI\": eci\r\n            });\r\n        }\r\n    });\r\n\r\n    // 按国家分组数据\r\n    const groupedData = d3.group(processedData, d => d.Country);\r\n\r\n    // 过滤掉数据点太少的国家\r\n    const filteredGroupedData = new Map(\r\n        Array.from(groupedData).filter(([_, values]) => values.length > 10)\r\n    );\r\n\r\n    // 找出2015年ECI最高和最低的各三个国家\r\n    const countriesWithECI2015 = Array.from(filteredGroupedData.entries())\r\n        .map(([country, values]) => {\r\n            const data2015 = values.find(d => d.Year === 2015);\r\n            return {\r\n                country: country,\r\n                eci: data2015 ? data2015.ECI : null\r\n            };\r\n        })\r\n        .filter(d => d.eci !== null)\r\n        .sort((a, b) => b.eci - a.eci);\r\n\r\n    const top3Countries = countriesWithECI2015.slice(0, 3).map(d => d.country);\r\n    const bottom3Countries = countriesWithECI2015.slice(-3).map(d => d.country);\r\n    const highlightCountries = [...top3Countries, ...bottom3Countries];\r\n\r\n    console.log(\"Top 3 countries by ECI in 2015:\", top3Countries);\r\n    console.log(\"Bottom 3 countries by ECI in 2015:\", bottom3Countries);\r\n\r\n    // 创建SVG\r\n    const svg = container.append('svg')\r\n        .attr('width', width)\r\n        .attr('height', height)\r\n        .style('display', 'block')\r\n        .style('margin', '0 auto')\r\n        .style('overflow', 'visible');\r\n\r\n    // 设置比例尺\r\n    const x = d3.scaleLinear()\r\n        .domain([1964, 2015])\r\n        .range([margin.left, width - margin.right]);\r\n\r\n    const y = d3.scaleLinear()\r\n        .domain([-3, 3])\r\n        .range([height - margin.bottom, margin.top]);\r\n\r\n    // 创建线条生成器\r\n    const line = d3.line()\r\n        .x(d => x(d.Year))\r\n        .y(d => y(d.ECI))\r\n        .curve(d3.curveMonotoneX);\r\n\r\n    // 绘制坐标轴\r\n    const xAxis = g => g\r\n        .attr('transform', `translate(0,${height - margin.bottom})`)\r\n        .call(d3.axisBottom(x)\r\n            .tickFormat(d3.format('d'))\r\n            .ticks(10));\r\n\r\n    const yAxis = g => g\r\n        .attr('transform', `translate(${margin.left},0)`)\r\n        .call(d3.axisLeft(y)\r\n            .ticks(6)\r\n            .tickFormat(d3.format('.1f')));\r\n\r\n    // 添加零线\r\n    svg.append('line')\r\n        .attr('x1', margin.left)\r\n        .attr('x2', width - margin.right)\r\n        .attr('y1', y(0))\r\n        .attr('y2', y(0))\r\n        .attr('stroke', '#ccc')\r\n        .attr('stroke-dasharray', '2,2');\r\n\r\n    svg.append('g').call(xAxis);\r\n    svg.append('g').call(yAxis);\r\n\r\n    // 添加标题和标签\r\n    svg.append('text')\r\n        .attr('class', 'chart-title')\r\n        .attr('x', width / 2)\r\n        .attr('y', margin.top - 10)\r\n        .attr('text-anchor', 'middle')\r\n        .style('font-size', '16px')\r\n        .style('font-weight', 'bold')\r\n        .text('各国/地区经济复杂度指数(ECI)变化折线图');\r\n\r\n    svg.append('text')\r\n        .attr('class', 'y-axis-label')\r\n        .attr('transform', 'rotate(-90)')\r\n        .attr('y', margin.left - 60)\r\n        .attr('x', -(height / 2))\r\n        .attr('text-anchor', 'middle')\r\n        .style('font-size', '14px')\r\n        .text('经济复杂度指数(ECI)');\r\n\r\n    svg.append('text')\r\n        .attr('class', 'x-axis-label')\r\n        .attr('x', width / 2)\r\n        .attr('y', height - margin.bottom + 40)\r\n        .attr('text-anchor', 'middle')\r\n        .style('font-size', '14px')\r\n        .text('年份');\r\n\r\n    // 设置颜色比例尺\r\n    const color = d3.scaleOrdinal(d3.schemeTableau10)\r\n        .domain(highlightCountries);\r\n\r\n    // 创建一个用于显示国家名称的标签组\r\n    const labelGroup = svg.append('g')\r\n        .attr('class', 'labels-group');\r\n\r\n    // 更新标签函数\r\n    function updateLabels(hoveredCountry = null) {\r\n        labelGroup.selectAll('text').remove();\r\n\r\n        const countriesToLabel = hoveredCountry ? [hoveredCountry] : highlightCountries;\r\n\r\n        // 收集所有标签的位置信息\r\n        const labelPositions = [];\r\n\r\n        countriesToLabel.forEach(country => {\r\n            const countryData = filteredGroupedData.get(country);\r\n            if (!countryData) return;\r\n\r\n            const lastPoint = countryData[countryData.length - 1];\r\n            if (lastPoint) {\r\n                const x = width - margin.right + 25; // 将标签向右移动\r\n                const yPos = y(lastPoint.ECI);\r\n                labelPositions.push({\r\n                    country,\r\n                    eci: lastPoint.ECI,\r\n                    x,\r\n                    y: yPos,\r\n                    height: 14\r\n                });\r\n            }\r\n        });\r\n\r\n        // 对标签位置进行调整以避免重叠\r\n        labelPositions.sort((a, b) => a.y - b.y);\r\n        for (let i = 1; i < labelPositions.length; i++) {\r\n            const prev = labelPositions[i - 1];\r\n            const curr = labelPositions[i];\r\n            const minDistance = 20; // 增加最小垂直间距\r\n\r\n            if (curr.y - prev.y < minDistance) {\r\n                curr.y = prev.y + minDistance;\r\n            }\r\n        }\r\n\r\n        // 绘制调整后的标签\r\n        labelPositions.forEach(label => {\r\n            labelGroup.append('text')\r\n                .attr('x', label.x)\r\n                .attr('y', label.y)\r\n                .text(`${label.country} (${label.eci.toFixed(2)})`)\r\n                .attr('fill', color(label.country))\r\n                .style('font-weight', 'bold')\r\n                .style('font-size', '12px')\r\n                .style('dominant-baseline', 'middle');\r\n        });\r\n    }\r\n\r\n    // 绘制线条\r\n    const linesGroup = svg.append('g')\r\n        .attr('class', 'lines-group');\r\n\r\n    // 首先绘制所有线条\r\n    const lines = linesGroup.selectAll('path.line')\r\n        .data(Array.from(filteredGroupedData.entries()))\r\n        .join('path')\r\n        .attr('class', 'line')\r\n        .attr('fill', 'none')\r\n        .attr('stroke-width', d => highlightCountries.includes(d[0]) ? 2 : 1)\r\n        .attr('stroke', d => highlightCountries.includes(d[0]) ? color(d[0]) : '#ccc')\r\n        .attr('opacity', d => highlightCountries.includes(d[0]) ? 1 : 0.15)\r\n        .attr('d', d => {\r\n            const countryData = d[1];\r\n            countryData.sort((a, b) => a.Year - b.Year);\r\n            return line(countryData);\r\n        });\r\n\r\n    // 添加透明的宽线条用于更容易的鼠标交互\r\n    const hoverLines = linesGroup.selectAll('path.hover-area')\r\n        .data(Array.from(filteredGroupedData.entries()))\r\n        .join('path')\r\n        .attr('class', 'hover-area')\r\n        .attr('fill', 'none')\r\n        .attr('stroke', 'transparent')\r\n        .attr('stroke-width', 10)\r\n        .attr('d', d => {\r\n            const countryData = d[1];\r\n            countryData.sort((a, b) => a.Year - b.Year);\r\n            return line(countryData);\r\n        })\r\n        .style('cursor', 'pointer')\r\n        .on('mouseover', function (event, d) {\r\n            const country = d[0];\r\n\r\n            // 高亮选中的线条，并为非高亮国家使用相同的颜色\r\n            lines\r\n                .attr('stroke', ([c, _]) => {\r\n                    if (c === country) {\r\n                        return highlightCountries.includes(c) ? color(c) : color(country);\r\n                    }\r\n                    return highlightCountries.includes(c) ? color(c) : '#ccc';\r\n                })\r\n                .attr('opacity', ([c, _]) => c === country ? 1 : (highlightCountries.includes(c) ? 0.8 : 0.1))\r\n                .attr('stroke-width', ([c, _]) => c === country ? 2.5 : (highlightCountries.includes(c) ? 2 : 1));\r\n\r\n            // 更新标签\r\n            updateLabels(country);\r\n        })\r\n        .on('mouseout', function () {\r\n            // 恢复原始状态\r\n            lines\r\n                .attr('stroke', ([c, _]) => highlightCountries.includes(c) ? color(c) : '#ccc')\r\n                .attr('opacity', ([c, _]) => highlightCountries.includes(c) ? 1 : 0.15)\r\n                .attr('stroke-width', ([c, _]) => highlightCountries.includes(c) ? 2 : 1);\r\n\r\n            // 恢复原始标签\r\n            updateLabels();\r\n        });\r\n\r\n    // 初始显示标签\r\n    updateLabels();\r\n}\r\n\r\nexport { drawECIChart }; 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/eci.js b/js/eci.js
+--- a/js/eci.js	(revision cd121e23ab6d47a3dba57a86f9f758f4c6a51112)
++++ b/js/eci.js	(date 1749451390022)
+@@ -68,7 +68,7 @@
+ 
+     // 设置比例尺
+     const x = d3.scaleLinear()
+-        .domain([1964, 2015])
++        .domain(d3.extent(processedData, d => d.Year))
+         .range([margin.left, width - margin.right]);
+ 
+     const y = d3.scaleLinear()
+@@ -100,7 +100,7 @@
+         .attr('x2', width - margin.right)
+         .attr('y1', y(0))
+         .attr('y2', y(0))
+-        .attr('stroke', '#ccc')
++        .attr('stroke', '#666')
+         .attr('stroke-dasharray', '2,2');
+ 
+     svg.append('g').call(xAxis);
+@@ -204,8 +204,8 @@
+         .attr('class', 'line')
+         .attr('fill', 'none')
+         .attr('stroke-width', d => highlightCountries.includes(d[0]) ? 2 : 1)
+-        .attr('stroke', d => highlightCountries.includes(d[0]) ? color(d[0]) : '#ccc')
+-        .attr('opacity', d => highlightCountries.includes(d[0]) ? 1 : 0.15)
++        .attr('stroke', d => highlightCountries.includes(d[0]) ? color(d[0]) : '#888')
++        .attr('opacity', d => highlightCountries.includes(d[0]) ? 1 : 0.25)
+         .attr('d', d => {
+             const countryData = d[1];
+             countryData.sort((a, b) => a.Year - b.Year);
+@@ -235,9 +235,9 @@
+                     if (c === country) {
+                         return highlightCountries.includes(c) ? color(c) : color(country);
+                     }
+-                    return highlightCountries.includes(c) ? color(c) : '#ccc';
++                    return highlightCountries.includes(c) ? color(c) : '#777';
+                 })
+-                .attr('opacity', ([c, _]) => c === country ? 1 : (highlightCountries.includes(c) ? 0.8 : 0.1))
++                .attr('opacity', ([c, _]) => c === country ? 1 : (highlightCountries.includes(c) ? 0.8 : 0.25))
+                 .attr('stroke-width', ([c, _]) => c === country ? 2.5 : (highlightCountries.includes(c) ? 2 : 1));
+ 
+             // 更新标签
+@@ -246,8 +246,8 @@
+         .on('mouseout', function () {
+             // 恢复原始状态
+             lines
+-                .attr('stroke', ([c, _]) => highlightCountries.includes(c) ? color(c) : '#ccc')
+-                .attr('opacity', ([c, _]) => highlightCountries.includes(c) ? 1 : 0.15)
++                .attr('stroke', ([c, _]) => highlightCountries.includes(c) ? color(c) : '#777')
++                .attr('opacity', ([c, _]) => highlightCountries.includes(c) ? 1 : 0.25)
+                 .attr('stroke-width', ([c, _]) => highlightCountries.includes(c) ? 2 : 1);
+ 
+             // 恢复原始标签
+Index: js/income.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function drawIncomeGroupChart(data) {\r\n    if (!data) return;\r\n\r\n    const container = d3.select('#economic-chart');\r\n    container.selectAll('*').remove();\r\n    container.style('height', '500px')\r\n        .style('display', 'flex')\r\n        .style('flex-direction', 'column')\r\n        .style('align-items', 'center');\r\n\r\n    // 将宽格式数据转换为长格式\r\n    const years = Object.keys(data[0]).filter(key => !isNaN(key));\r\n    let longFormatData = [];\r\n\r\n    data.forEach(row => {\r\n        years.forEach(year => {\r\n            if (row[year] && row[year] !== '..') {\r\n                longFormatData.push({\r\n                    country: row.Code,\r\n                    year: year,\r\n                    incomeGroup: row[year]\r\n                });\r\n            }\r\n        });\r\n    });\r\n\r\n    // 获取所有可用的年份并倒序排列\r\n    const availableYears = Array.from(new Set(longFormatData.map(d => d.year)))\r\n        .sort((a, b) => b - a);\r\n\r\n    // 设置饼图的尺寸\r\n    const width = container.node().clientWidth || 800;\r\n    const height = 350;  // 调整图表高度\r\n    const radius = Math.min(width, height) / 2.5;\r\n\r\n    // 定义颜色比例尺\r\n    const color = d3.scaleOrdinal()\r\n        .domain(['H', 'UM', 'LM', 'L'])\r\n        .range(['#2ecc71', '#3498db', '#e67e22', '#e74c3c']);\r\n\r\n    // 添加年份选择器\r\n    const controlsDiv = container.append('div')\r\n        .style('text-align', 'center')\r\n        .style('margin', '10px 0');\r\n\r\n    controlsDiv.append('label')\r\n        .text('选择年份: ')\r\n        .style('margin-right', '10px');\r\n\r\n    const yearSelect = controlsDiv.append('select')\r\n        .style('padding', '5px')\r\n        .style('font-size', '14px')\r\n        .on('change', function () {\r\n            updateChart(this.value);\r\n        });\r\n\r\n    yearSelect.selectAll('option')\r\n        .data(availableYears)\r\n        .enter()\r\n        .append('option')\r\n        .text(d => d)\r\n        .attr('value', d => d);\r\n\r\n    // 创建图例容器 - 移到最上方\r\n    const legendContainer = container.append('div')\r\n        .style('text-align', 'center')\r\n        .style('margin', '10px auto')\r\n        .style('padding', '10px')\r\n        .style('max-width', '600px');\r\n\r\n    // 创建图例\r\n    const legend = legendContainer.append('div')\r\n        .style('display', 'flex')\r\n        .style('justify-content', 'center')\r\n        .style('flex-wrap', 'wrap')\r\n        .style('gap', '20px');\r\n\r\n    const legendItems = legend.selectAll('.legend-item')\r\n        .data([\r\n            { key: 'H', label: 'High income' },\r\n            { key: 'UM', label: 'Upper middle income' },\r\n            { key: 'LM', label: 'Lower middle income' },\r\n            { key: 'L', label: 'Low income' }\r\n        ])\r\n        .enter()\r\n        .append('div')\r\n        .style('display', 'flex')\r\n        .style('align-items', 'center')\r\n        .style('margin', '5px 10px');\r\n\r\n    legendItems.append('div')\r\n        .style('width', '12px')\r\n        .style('height', '12px')\r\n        .style('margin-right', '5px')\r\n        .style('background-color', d => color(d.key));\r\n\r\n    legendItems.append('span')\r\n        .text(d => d.label);\r\n\r\n    // 添加标题\r\n    container.append('div')\r\n        .style('text-align', 'center')\r\n        .style('font-size', '18px')\r\n        .style('font-weight', 'bold')\r\n        .style('margin', '10px 0')\r\n        .text('各收入组国家/地区数量分布');\r\n\r\n    // 创建SVG容器\r\n    const svg = container.append('svg')\r\n        .attr('width', width)\r\n        .attr('height', height)\r\n        .style('display', 'block')\r\n        .style('margin', '0 auto')\r\n        .append('g')\r\n        .attr('transform', `translate(${width / 2},${height / 2 - 30})`);  // 向上移动30个像素\r\n\r\n    // 创建饼图生成器\r\n    const pie = d3.pie()\r\n        .value(d => d.count)\r\n        .sort(null);\r\n\r\n    const arc = d3.arc()\r\n        .innerRadius(0)\r\n        .outerRadius(radius - 40);\r\n\r\n    // 创建标签弧线\r\n    const labelArc = d3.arc()\r\n        .innerRadius(radius - 40)\r\n        .outerRadius(radius - 40);\r\n\r\n    // 更新图表的函数\r\n    function updateChart(selectedYear) {\r\n        // 处理数据\r\n        const yearData = longFormatData.filter(d => d.year === selectedYear);\r\n\r\n        // 统计每个收入组的数量\r\n        const groupCounts = d3.rollup(yearData,\r\n            v => v.length,\r\n            d => d.incomeGroup\r\n        );\r\n\r\n        const pieData = Array.from(groupCounts, ([key, value]) => ({\r\n            category: key,\r\n            count: value\r\n        }));\r\n\r\n        // 清除现有的路径\r\n        svg.selectAll('*').remove();\r\n\r\n        // 创建新的路径\r\n        const arcs = svg.selectAll('path')\r\n            .data(pie(pieData))\r\n            .enter()\r\n            .append('g');\r\n\r\n        arcs.append('path')\r\n            .attr('d', arc)\r\n            .attr('fill', d => color(d.data.category))\r\n            .attr('stroke', 'white')\r\n            .style('stroke-width', '2px')\r\n            .style('opacity', 0.8)\r\n            .on('mouseover', function () {\r\n                d3.select(this)\r\n                    .style('opacity', 1);\r\n            })\r\n            .on('mouseout', function () {\r\n                d3.select(this)\r\n                    .style('opacity', 0.8);\r\n            });\r\n\r\n        // 添加标签\r\n        arcs.append('text')\r\n            .attr('transform', d => {\r\n                const pos = labelArc.centroid(d);\r\n                return `translate(${pos})`;\r\n            })\r\n            .attr('dy', '0.35em')\r\n            .style('text-anchor', 'middle')\r\n            .style('font-size', '12px')\r\n            .text(d => `${d.data.count} (${(d.data.count / yearData.length * 100).toFixed(1)}%)`);\r\n    }\r\n\r\n    // 初始显示最新年份的数据\r\n    yearSelect.property('value', availableYears[0]);\r\n    updateChart(availableYears[0]);\r\n}\r\n\r\nexport { drawIncomeGroupChart }; 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/income.js b/js/income.js
+--- a/js/income.js	(revision cd121e23ab6d47a3dba57a86f9f758f4c6a51112)
++++ b/js/income.js	(date 1749451827081)
+@@ -24,9 +24,10 @@
+         });
+     });
+ 
+-    // 获取所有可用的年份并倒序排列
++    // 获取所有可用的年份并按照升序排列（1999-2018）
+     const availableYears = Array.from(new Set(longFormatData.map(d => d.year)))
+-        .sort((a, b) => b - a);
++        .filter(year => year >= 1999 && year <= 2018)
++        .sort((a, b) => a - b);
+ 
+     // 设置饼图的尺寸
+     const width = container.node().clientWidth || 800;
