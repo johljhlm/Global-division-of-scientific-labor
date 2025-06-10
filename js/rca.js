@@ -17,7 +17,7 @@ function drawBarChart(data, title, containerSelector) {
         .range([margin.top, height - margin.bottom])
         .padding(0.2);
 
-    // 每个学科一个颜色
+    // 每个一级学科一个颜色
     const colorMap = {
         "Arts and Humanities": "#f3722c",
         "Engineering": "#f9c74f",
