@@ -221,7 +221,7 @@ function drawGeographic() {
     // 加载数据并绘制地图
     Promise.all([
         d3.json("../data/world.json"),
-        d3.csv("../data/ceo_geoo.csv")
+        d3.csv("../data/geography_correlation.csv")
     ]).then(([geoData, csvData]) => {
         drawAllMaps(geoData.features, csvData);
         // 数据加载完成后移除加载提示
